@@ -14,6 +14,7 @@ class MensagemSeeder extends Seeder
       $allMensagens = [
             ['id' => 1, 'msg' => 'Filiado já cadastrado.'],
             ['id' => 2, 'msg' => 'Filiado cadastrado com sucesso.'],
+            ['id' => 3, 'msg' => 'Login ou Senha incorretos.'],
         ];
       foreach ($allMensagens as $mensagem) {
         Mensagem::create($mensagem);

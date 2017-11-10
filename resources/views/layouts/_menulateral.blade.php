@@ -5,7 +5,7 @@
 
       <div class="profile-image col-xs-4">
           <a href="ui-profile.html">
-              <img alt="" src="{{ asset('data/profile/profile.jpg') }}" class="img-responsive img-circle">
+              <img alt="" src="{{ asset('images/profile.jpg') }}" class="img-responsive img-circle">
 
           </a>
       </div>

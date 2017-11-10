@@ -7,20 +7,21 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
 use App\Helpers\LogAtividades;
+use App\Helpers\Mensagem;
 class UsuarioController extends Controller
 {
     //
     public function login(Request $request)
     {
+      sleep(3);
     	$dados = $request->all();
     	//dd($dados);
     	if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password']])){
     		\Session::flash('alerta',['tipo'=>'success','titulo'=>'Logado','msg'=>'Logado com sucesso.']);
         LogAtividades::addToLog('Usuário '.$dados['email'].' logou');
-    		return redirect()->route('painel');
+    		return response()->json(['retorno'=>0]);
     	}
-        \Session::flash('alerta',['tipo'=>'error','titulo'=>'Dados incorretos','msg'=>'Confira seus dados e tente novamente.']);
-        return redirect()->route('login');
+        return response()->json(['retorno'=>1,'mensagem'=>Mensagem::get(3)]);
     }
     public function sair()
     {

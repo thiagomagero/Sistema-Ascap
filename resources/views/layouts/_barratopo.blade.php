@@ -16,7 +16,7 @@
               <ul class="info-menu right-links list-inline list-unstyled">
                   <li class="profile">
                       <a href="#" data-toggle="dropdown" class="toggle">
-                          <img src="{{ asset('data/profile/profile.jpg') }}" alt="user-image" class="img-circle img-inline">
+                          <img src="{{ asset('images/profile.jpg') }}" alt="user-image" class="img-circle img-inline">
                           <span>{{ Auth::user()->name}} <i class="fa fa-angle-down"></i></span>
                       </a>
                       <ul class="dropdown-menu profile animated fadeIn">
