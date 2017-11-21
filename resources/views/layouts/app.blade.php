@@ -74,11 +74,13 @@
   <script src="{{ asset('plugins/pace/pace.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('plugins/viewport/viewportchecker.js') }}" type="text/javascript"></script>
-  <script>window.jQuery || document.write('<script src="http://localhost:8000/js/jquery-1.12.4.min.js"><\/script>');</script>
+  <script>window.jQuery || document.write('<script src="{{ asset('js/jquery-1.12.4.min.js') }}"><\/script>');</script>
   <script src="{{ asset('plugins/datatables/js/jquery.datatables.min.js') }}"></script>
   <script src="{{ asset('plugins/datatables/js/datatables.bootstrap.min.js') }}"></script>
   <script src="{{ asset('plugins/toast/toastr.min.js') }}"></script>
   <script src="{{ asset('plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
+  <script src="{{ asset('plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
+  <script src="{{ asset('plugins/jquery-validation/js/metodos-adicionais.min.js') }}"></script>
   <!-- CORE JS FRAMEWORK - FIM -->
 
 

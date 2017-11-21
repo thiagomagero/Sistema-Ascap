@@ -2999,6 +2999,7 @@ jQuery(function($) {
 
         // select2
         if ($.isFunction($.fn.select2)) {
+          $(".select2").select2();
 
             $("#s2example-1").select2({
                 placeholder: 'Select your country...',

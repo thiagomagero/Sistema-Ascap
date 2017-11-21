@@ -46,13 +46,13 @@
           </div>
         </header>
         <div class="content-body">
-          <form id="formAddFiliado" action="{{ route('filiados.salvar') }}" method="post">
+          <form id="formAddFiliado" action="{{ route('filiados.salvar') }}" method="POST"  novalidate>
             {{ csrf_field() }}
 
             @include('filiados._formAdicionar')
             <div class="row">
               <div class="col-xs-4" style="margin-top:32px">
-                <button class="btn btn-primary envia" type="button" name="button">Cadastrar</button>
+                <input class="btn btn-primary" type="submit" />
               </div>
 
             </div>
@@ -78,21 +78,36 @@
 <script src="{{ asset('plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
+var regras = {
+  nome: {
+    required: true
+  },
+  cpf: {
+    required: true,
+    cpf: true
+  },
+  filiacao: {
+    required: true
+  },
+  dt_nascimento: {
+    required: true
+  },
+  matricula: {
+    required: true
+  },
+  rg: {
+    required: true
+  },
+  endereco: {
+    required: true
+  },
+  uf: {
+    required: true
+  }
+};
 
+ajaxFire("formAddFiliado",regras);
 
-ajaxFire("formAddFiliado",'{{ route('filiados.salvar') }}');
-
-$(document).ready(function(){
-
-  @if ($errors->any())
-  @foreach ($errors->toArray() as $campo => $error)
-  $( 'input[name={{ $campo }}]' ).parent('div').addClass( "has-error" );
-  @foreach ($error as $e)
-  $('input[name={{ $campo }}]').after('<span class="text-danger">{{$e}}</span>');
-  @endforeach
-  @endforeach
-  @endif
-});
 </script>
 
 @endpush

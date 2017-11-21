@@ -34,14 +34,14 @@
 <div class="row">
 	<div class="col-xs-8">
 		<label class="form-label" for="">Endereço:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control" name="endereco">
 	</div>
 	<div class="col-xs-4">
 		<div class="form-group">
 				<label class="form-label">Estado:</label>
 
-				<select class=" " id="s2example-1">
-						<option>Selecione um Estado</option>
+				<select name="uf" class="select2">
+						<option value="">Selecione um Estado</option>
 						<option value="AC">Acre</option>
 						<option value="AL">Alagoas</option>
 						<option value="AP">Amapá</option>
@@ -132,18 +132,3 @@
 		<input tabindex="5" type="checkbox" id="filiado" class="icheck-minimal-purple" >
 	</div>
 </div>
-
-
-
-<!-- <div class="input-field">
-	<input type="text" name="name" class="validate" value="{{ isset($usuario->name) ? $usuario->name :'' }}">
-	<label>Nome</label>
-</div>
-<div class="input-field">
-	<input type="text" name="email" class="validate" value="{{ isset($usuario->email) ? $usuario->email :'' }}">
-	<label>E-mail</label>
-</div>
-<div class="input-field">
-	<input type="password" name="password" class="validate">
-	<label>Senha</label>
-</div> -->

@@ -1,8 +1,11 @@
-function ajaxFire(idFormulario,rota){
-  $('#'+idFormulario+' .envia').on('click',function(){
+function ajaxFire(idFormulario,regras){
+  $.validator.setDefaults({ ignore: ":hidden:not(select)" });
+  $("#"+idFormulario).validate({
+    rules: regras,
+    submitHandler: function(form) {
       $.ajax({
-        url: rota,
-        type: "POST",
+        url: form.action,
+        type: form.method,
         data : $("#"+idFormulario).serialize(),
         beforeSend: function() {
           $('.loading').show();
@@ -19,21 +22,71 @@ function ajaxFire(idFormulario,rota){
             location.reload();
           }
         },
-    complete: function() {
-      $('.loading').hide();
-    }
+        complete: function() {
+          $('.loading').hide();
+        }
       });
+      return false;
+    }
   });
 }
+if ($.isFunction($.fn.select2)) {
+
+    $("#s2example-1").select2({
+        placeholder: 'Select your country...',
+        allowClear: true
+    }).on('select2-open', function() {
+        // Adding Custom Scrollbar
+        $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+    });
+
+
+    $("#s2example-2").select2({
+        placeholder: 'Choose your favorite US Countries',
+        allowClear: true
+    }).on('select2-open', function() {
+        // Adding Custom Scrollbar
+        $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
+    });
+
+
+    $("#s2example-4").select2({
+        minimumInputLength: 1,
+        placeholder: 'Search',
+        ajax: {
+            url: "data/select2-remote-data.php",
+            dataType: 'json',
+            quietMillis: 100,
+            data: function(term, page) {
+                return {
+                    limit: -1,
+                    q: term
+                };
+            },
+            results: function(data, page) {
+                return {
+                    results: data
+                }
+            }
+        },
+        formatResult: function(student) {
+            return "<div class='select2-user-result'>" + student.name + "</div>";
+        },
+        formatSelection: function(student) {
+            return student.name;
+        }
+
+    });
+}
 function limpaElementos(){
-    $(this)
-    .find("input,textarea,select")
-       .val('')
-       .end()
-    .find("input[type=checkbox], input[type=radio]")
-       .prop("checked", "")
-       .end();
-  }
+  $(this)
+  .find("input,textarea,select")
+  .val('')
+  .end()
+  .find("input[type=checkbox], input[type=radio]")
+  .prop("checked", "")
+  .end();
+}
 $(document).ready(function(){
   $(".loading").hide();
   toastr.options = {
@@ -91,5 +144,5 @@ $( ".btnSalvaUsuario" ).on( "click", function() {
 
 
 function deletarUsuario(id){
-window.location.href = "/usuarios/deletar/"+id;
+  window.location.href = "/usuarios/deletar/"+id;
 }
