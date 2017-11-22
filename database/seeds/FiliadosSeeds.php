@@ -14,12 +14,19 @@ class FiliadosSeeds extends Seeder
         $faker = Faker::create('pt_BR');
 			foreach (range(1,50) as $index) {
 				DB::table('filiados')->insert([
-				'cpf' => $faker->unique()->numberBetween($min = 12564857159, $max = 98745632519),
+				'cpf' => $faker->cpf(false),
 				'nome' => $faker->name,
 				'matricula' => $faker->numberBetween($min = 234876, $max = 958746),
 				'dt_nascimento' => $faker->date,
-				'rg' => $faker->randomDigit,
+				'rg' => $faker->rg,
+        'rg_uf' => $faker->stateAbbr,
+        'cidade' => $faker->city,
+        'tel_celular' => $faker->phone,
+        'tel_fixo' => $faker->phone,
 				'cep' => $faker->randomDigit,
+        'email' => $faker->freeEmail,
+        'status' => $faker->numberBetween(0,1),
+        'acao_judicial' => $faker->numberBetween(0,1),
         'endereco' => $faker->address,
         'uf' => $faker->stateAbbr,
 			]);

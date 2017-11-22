@@ -18,8 +18,8 @@ function ajaxFire(idFormulario,regras){
             toastr.error(data.mensagem,'Erro!');
           }
           if(retorno==0){
-            $("#"+idFormulario)[0].reset();
-            location.reload();
+            //$("#"+idFormulario)[0].reset();
+            //location.reload();
           }
         },
         complete: function() {

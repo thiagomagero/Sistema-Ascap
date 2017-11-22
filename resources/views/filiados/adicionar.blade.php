@@ -79,30 +79,13 @@
 
 <script type="text/javascript">
 var regras = {
-  nome: {
-    required: true
-  },
   cpf: {
     required: true,
     cpf: true
   },
-  filiacao: {
-    required: true
-  },
-  dt_nascimento: {
-    required: true
-  },
-  matricula: {
-    required: true
-  },
-  rg: {
-    required: true
-  },
-  endereco: {
-    required: true
-  },
-  uf: {
-    required: true
+  email: {
+    required: true,
+    email: true
   }
 };
 

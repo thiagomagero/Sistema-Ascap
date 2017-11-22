@@ -1,4 +1,5 @@
-<?php $__env->startSection('content'); ?>
+@extends('layouts.app')
+@section('content')
 <!-- INÍCIO DO CONTEÚDO -->
 <section id="main-content" class=" ">
   <section class="wrapper main-wrapper row" style=''>
@@ -22,7 +23,7 @@
               <a href="/"><i class="fa fa-home"></i>Painel</a>
             </li>
             <li>
-              <a href="<?php echo e(route('filiados')); ?>">Filiados</a>
+              <a href="{{ route('filiados') }}">Filiados</a>
             </li>
             <li class="active">
               <strong>Adicionar</strong>
@@ -45,11 +46,10 @@
           </div>
         </header>
         <div class="content-body">
-          <form id="formAddFiliado" action="<?php echo e(route('filiados.salvar')); ?>" method="POST"  novalidate>
-            <?php echo e(csrf_field()); ?>
+          <form id="formAtualizaFiliado" action="{{ route('filiados.atualizar',$filiado->id) }}" method="PUT"  novalidate>
+            {{ csrf_field() }}
 
-
-            <?php echo $__env->make('filiados._formAdicionar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            @include('filiados._formAdicionar')
             <div class="row">
               <div class="col-xs-4" style="margin-top:32px">
                 <input class="btn btn-primary" type="submit" />
@@ -66,16 +66,16 @@
   </section>
 </section>
 <!-- FIM DO CONTEÚDO -->
-<?php $__env->stopSection(); ?>
-<?php $__env->startPush('styles'); ?>
-<link href="<?php echo e(asset('plugins/select2/select2.css')); ?>" rel="stylesheet">
-<link href="<?php echo e(asset('plugins/icheck/skins/all.css')); ?>" rel="stylesheet">
-<?php $__env->stopPush(); ?>
+@endsection
+@push('styles')
+<link href="{{ asset('plugins/select2/select2.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/icheck/skins/all.css') }}" rel="stylesheet">
+@endpush
 
-<?php $__env->startPush('scripts'); ?>
-<script src="<?php echo e(asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js')); ?>" type="text/javascript"></script>
-<script src="<?php echo e(asset('plugins/select2/select2.min.js')); ?>" type="text/javascript"></script>
-<script src="<?php echo e(asset('plugins/icheck/icheck.min.js')); ?>" type="text/javascript"></script>
+@push('scripts')
+<script src="{{ asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
 var regras = {
@@ -89,13 +89,11 @@ var regras = {
   }
 };
 
-ajaxFire("formAddFiliado",regras);
+ajaxFire("formAtualizaFiliado",regras);
 
 </script>
 
-<?php $__env->stopPush(); ?>
-<?php $__env->startSection('scripts'); ?>
-<?php echo $__env->make("dinamicos.js._jsfiliados", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+@endpush
+@section('scripts')
+@include("dinamicos.js._jsfiliados")
+@endsection

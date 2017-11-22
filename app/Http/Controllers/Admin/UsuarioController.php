@@ -13,7 +13,6 @@ class UsuarioController extends Controller
     //
     public function login(Request $request)
     {
-      sleep(3);
     	$dados = $request->all();
     	//dd($dados);
     	if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password']])){

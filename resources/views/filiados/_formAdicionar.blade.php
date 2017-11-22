@@ -1,29 +1,29 @@
 <div class='row'>
 	<div class="col-xs-12">
 		<label class="form-label" for="">Nome:</label>
-			<input type="text" class="form-control" name="nome">
+			<input type="text" class="form-control" name="nome" value="{{ isset($filiado->nome) ? $filiado->nome :'' }}" required>
 	</div>
 
 </div>
 <div class="row">
 	<div class="col-xs-12">
 		<label class="form-label" for="">Filiação:</label>
-			<input type="text" class="form-control " name="filiacao">
+			<input type="text" class="form-control " name="filiacao" value="{{ isset($filiado->filiacao) ? $filiado->filiacao :'' }}" required>
 	</div>
 
 </div>
 <div class="row">
 	<div class="col-xs-3">
 		<label class="form-label" for="">Data de Nascimento:</label>
-			<input type="text" class="form-control "  data-mask="date" name="dt_nascimento">
+			<input type="text" class="form-control "  data-mask="date" name="dt_nascimento" required>
 	</div>
 	<div class="col-xs-3">
 		<label class="form-label" for="">Matrícula:</label>
-			<input type="text" class="form-control " name="matricula">
+			<input type="text" class="form-control " name="matricula" required>
 	</div>
 	<div class="col-xs-3">
 		<label class="form-label" for="">RG:</label>
-			<input type="text" class="form-control " name="rg">
+			<input type="text" class="form-control " name="rg" required>
 
 	</div>
 	<div class="col-xs-3">
@@ -34,41 +34,21 @@
 <div class="row">
 	<div class="col-xs-8">
 		<label class="form-label" for="">Endereço:</label>
-			<input type="text" class="form-control" name="endereco">
+			<input type="text" class="form-control" name="endereco" required>
 	</div>
 	<div class="col-xs-4">
 		<div class="form-group">
 				<label class="form-label">Estado:</label>
 
-				<select name="uf" class="select2">
+				<select name="uf" class="select2" required>
 						<option value="">Selecione um Estado</option>
-						<option value="AC">Acre</option>
-						<option value="AL">Alagoas</option>
-						<option value="AP">Amapá</option>
-						<option value="AM">Amazonas</option>
-						<option value="BA">Bahia</option>
-						<option value="CE">Ceará</option>
-						<option value="DF">Distrito Federal</option>
-						<option value="ES">Espírito Santo</option>
-						<option value="GO">Goiás</option>
-						<option value="MA">Maranhão</option>
-						<option value="MT">Mato Grosso</option>
-						<option value="MS">Mato Grosso do Sul</option>
-						<option value="MG">Minas Gerais</option>
-						<option value="PA">Pará</option>
-						<option value="PB">Paraíba</option>
-						<option value="PR">Paraná</option>
-						<option value="PE">Pernambuco</option>
-						<option value="PI">Piauí</option>
-						<option value="RJ">Rio de Janeiro</option>
-						<option value="RN">Rio Grande do Norte</option>
-						<option value="RS">Rio Grande do Sul</option>
-						<option value="RO">Rondônia</option>
-						<option value="RR">Roraima</option>
-						<option value="SC">Santa Catarina</option>
-						<option value="SP">São Paulo</option>
-						<option value="SE">Sergipe</option>
-						<option value="TO">Tocantins</option>
+						@foreach($estados as $estado)
+								<option value="{{$estado->letter}}"
+									@if(isset($filiado->uf))
+										{{ $estado->letter == $filiado->uf ? 'selected="selected"' : '' }}
+									@endif
+									>{{$estado->title}}</option>
+						@endforeach
 				</select>
 
 
@@ -78,29 +58,29 @@
 <div class="row">
 	<div class="col-xs-4">
 		<label class="form-label" for="">Cidade:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control" name="cidade" required>
 	</div>
 	<div class="col-xs-4">
 		<label class="form-label" for="">CEP:</label>
-			<input type="text" class="form-control " name="cep">
+			<input type="text" class="form-control " name="cep" data-mask="99.999-999" required>
 	</div>
 	<div class="col-xs-4">
 		<label class="form-label" for="">Telefone Fixo:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control"  data-mask="(99) 999999999" name="tel_fixo">
 	</div>
 </div>
 <div class="row">
 	<div class="col-xs-4">
 		<label class="form-label" for="">Celular:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control" data-mask="(99) 999999999" name="tel_celular">
 	</div>
 	<div class="col-xs-4">
 		<label class="form-label" for="">Lotação:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control" name="lotacao" required>
 	</div>
 	<div class="col-xs-4">
 		<label class="form-label" for="">Setor:</label>
-			<input type="text" class="form-control ">
+			<input type="text" class="form-control" name="setor" required>
 	</div>
 </div>
 <div class="row">
@@ -111,11 +91,11 @@
 	<div class="col-xs-4" style="margin-top:32px">
 		<label class="form-label" for="">Cargo:</label>
 		<label class="icheck-label form-label" for="TPPG">TPPG</label>
-		<input tabindex="5" type="checkbox" id="TPPG" class="icheck-minimal-purple" >
+		<input tabindex="5" type="radio" id="TPPG" class="icheck-minimal-purple" name="tp_cargo" value="TPPG" checked>
 		<label class="icheck-label form-label" for="APPGG">APPGG</label>
-		<input tabindex="5" type="checkbox" id="APPGG" class="icheck-minimal-purple" >
+		<input tabindex="5" type="radio" id="APPGG" class="icheck-minimal-purple" name="tp_cargo" value="APPGG">
 		<label class="icheck-label form-label" for="GPPGG">GPPGG</label>
-		<input tabindex="5" type="checkbox" id="GPPGG" class="icheck-minimal-purple" >
+		<input tabindex="5" type="radio" id="GPPGG" class="icheck-minimal-purple" name="tp_cargo" value="GPPGG">
 
 	</div>
 </div>
@@ -123,12 +103,12 @@
 	<div class="col-xs-4" style="margin-top:32px">
 		<label class="form-label" for="">Status:</label>
 		<label class="icheck-label form-label" for="filiado">Filiado</label>
-		<input tabindex="5" type="checkbox" id="filiado" class="icheck-minimal-purple" >
+		<input tabindex="5" type="radio"  class="icheck-minimal-purple" name="status" value="1" checked>
 		<label class="icheck-label form-label" for="desfiliado">Desfiliado</label>
-		<input tabindex="5" type="checkbox" id="desfiliado" class="icheck-minimal-purple" >
+		<input tabindex="5" type="radio" class="icheck-minimal-purple" name="status" value="0">
 	</div>
 	<div class="col-xs-4" style="margin-top:32px">
 		<label class="icheck-label form-label" for="filiado">Ação Judicial: </label>
-		<input tabindex="5" type="checkbox" id="filiado" class="icheck-minimal-purple" >
+		<input tabindex="5" type="checkbox"  class="icheck-minimal-purple" name="acao_judicial" value="1">
 	</div>
 </div>

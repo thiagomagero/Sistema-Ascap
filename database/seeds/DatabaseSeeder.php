@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsuariosSeeds::class); // habilitando o uso da seed usuario
         $this->call(FiliadosSeeds::class);
         $this->call(MensagemSeeder::class);
-        // $this->call(StateTableSeeder::class);
+        $this->call(StateTableSeeder::class);
         // $this->call(CityTableSeeder::class);
     }
 }
