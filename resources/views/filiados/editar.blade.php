@@ -26,7 +26,7 @@
               <a href="{{ route('filiados') }}">Filiados</a>
             </li>
             <li class="active">
-              <strong>Adicionar</strong>
+              <strong>{{ isset($filiado->nome) ? $filiado->nome :'' }}</strong>
             </li>
           </ol>
         </div>
@@ -40,7 +40,7 @@
     <div class="col-lg-12">
       <section class="box ">
         <header class="panel_header">
-          <h2 class="title pull-left">Adicionar</h2>
+          <h2 class="title pull-left">Editando {{ isset($filiado->nome) ? $filiado->nome :'' }}</h2>
           <div class="actions panel_actions pull-right">
             <a class="box_toggle fa fa-chevron-down"></a>
           </div>
