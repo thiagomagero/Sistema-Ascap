@@ -15,7 +15,7 @@
 <div class="row">
 	<div class="col-xs-3">
 		<label class="form-label" for="">Data de Nascimento:</label>
-			<input type="text" class="form-control" data-mask="date" name="dt_nascimento" value="{{ isset($filiado->dt_nascimento) ? $filiado->dt_nascimento :'' }}" required>
+			<input type="text" class="form-control datepicker" data-format="dd/mm/yyyy" data-mask="date" name="dt_nascimento" value="{{ isset($filiado->dt_nascimento) ? $filiado->dt_nascimento :'' }}" required>
 	</div>
 	<div class="col-xs-3">
 		<label class="form-label" for="">Matrícula:</label>

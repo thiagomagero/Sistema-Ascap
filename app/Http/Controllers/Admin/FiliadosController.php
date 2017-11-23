@@ -29,9 +29,9 @@ class FiliadosController extends Controller
 			return date('d/m/Y', strtotime($filiado->dt_nascimento));
 		})
 		->addColumn('action', function($filiado){
-			return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i>Show</a>' .
+			return '<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i>Show</a>' .
 			'<a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i>Editar</a>' .
-			'<a onclick="deleteData('.$filiado->id.')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
+			'<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
 		})
 		->make(true);
 	}
@@ -59,42 +59,42 @@ class FiliadosController extends Controller
 			}else{
 
 				$filiado = new Filiado();
-				$filiado->cpf = $request->cpf;
-				$filiado->nome = $request->nome;
-				$filiado->matricula = $request->matricula;
-				$filiado->filiacao = $request->filiacao;
-				$filiado->dt_nascimento = date('Y-m-d H:i', strtotime($request->dt_nascimento));
-				$filiado->rg = $request->rg;
-				$filiado->rg_uf = $request->rg_uf;
-				$filiado->endereco = $request->endereco;
-				$filiado->cep = $request->cep;
-				$filiado->cidade = $request->cidade;
-				$filiado->uf = $request->uf;
-				$filiado->tel_celular = $request->tel_celular;
-				$filiado->tel_fixo = $request->tel_fixo;
-				$filiado->lotacao = $request->lotacao;
-				$filiado->setor = $request->setor;
-				$filiado->tp_cargo = $request->tp_cargo;
-				$filiado->email = $request->email;
-				$filiado->acao_judicial = $request->acao_judicial;
-				$filiado->status = $request->status;
-				$filiado->dt_filiacao = $request->dt_filiacao;
+				$dados = $request->all();
+				$filiado->fill($dados);
 				$filiado->save();
 				\Session::flash('alerta',['tipo'=>'success','titulo'=>'Sucesso.','msg'=>Mensagem::get(2)]);
-				return response()->json(['retorno'=>0]);
+				return response()->json(['retorno'=>0,'redirect'=>null]);
 			}
 		}
 
 	}
-	public function editar($id_filiado)
+	public function editar($id)
 	{
 			$estados = State::all();
-			$filiado = Filiado::find($id_filiado);
+			$filiado = Filiado::find($id);
 			//dd($estado);
 			return view('filiados.editar',compact('filiado'))
 				->with(compact('estados'));
 
 	}
+	public function atualizar(Request $request, $id){
+
+			$filiado = Filiado::find($id);
+
+			$dados = $request->all();
+
+			$filiado->fill($dados);
+			$filiado->save();
+
+			\Session::flash('alerta',['tipo'=>'success','titulo'=>'Atualizado!','msg'=>Mensagem::get(4)]);
+			return response()->json(['retorno'=>0,'redirect'=>route('filiados')]);
+	}
+
+	public function visualizar($id){
+		$filiado = Filiado::find($id);
+		return response()->json(['retorno'=>0,'redirect'=>null]);
+	}
+
 
 
 }

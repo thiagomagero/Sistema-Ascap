@@ -70,12 +70,15 @@
 @push('styles')
 <link href="{{ asset('plugins/select2/select2.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/icheck/skins/all.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/datepicker/css/datepicker.css') }}" rel="stylesheet">
 @endpush
 
 @push('scripts')
 <script src="{{ asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('plugins/select2/select2.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+
+<script src="{{ asset('plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script>
 
 <script type="text/javascript">
 var regras = {

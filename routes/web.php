@@ -46,7 +46,8 @@ Route::group(['middleware'=>'auth'], function(){
 
 	Route::get('/filiados/editar/{id}',['as'=>'filiados.editar', 'uses'=>'Admin\FiliadosController@editar']);
 
-	Route::put('/filiados/atualizar/{id}',['as'=>'filiados.atualizar', 'uses'=>'Admin\FiliadosController@atualizar']);
+	Route::post('/filiados/atualizar/{id}',['as'=>'filiados.atualizar', 'uses'=>'Admin\FiliadosController@atualizar']);
+	Route::post('/filiados/visualizar/{id}',['as'=>'filiados.visualizar', 'uses'=>'Admin\FiliadosController@visualizar']);
 });
 // FIM MIDDLEWARE AUTH
 Route::get('/',['as'=>'login', function(){

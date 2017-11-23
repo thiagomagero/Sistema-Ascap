@@ -12,14 +12,20 @@ function ajaxFire(idFormulario,regras){
         },
         success: function(data) {
           var retorno = data.retorno;
+          var redirect = data.redirect;
 
           if(retorno==1){
             var mensagem = data.mensagem
             toastr.error(data.mensagem,'Erro!');
           }
           if(retorno==0){
-            //$("#"+idFormulario)[0].reset();
-            //location.reload();
+            if(redirect){
+              window.location = redirect;
+            }else{
+              $("#"+idFormulario)[0].reset();
+              location.reload();
+            }
+
           }
         },
         complete: function() {

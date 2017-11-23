@@ -30,4 +30,8 @@ class Filiado extends Model
     'dt_filiacao'
   ];
 
+public function setDtNascimentoAttribute($valor){
+  $this->attributes['dt_nascimento'] = date('Y-m-d H:i', strtotime($valor));
+}
+
 }
