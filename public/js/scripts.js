@@ -2739,13 +2739,10 @@ jQuery(function($) {
             $(".datepicker").each(function(i, e) {
                 var $this = $(e),
                     options = {
-                        minViewMode: getValue($this, 'minViewMode', 0),
-                        format: getValue($this, 'format', 'dd/mm/yyyy'),
-                        startDate: getValue($this, 'startDate', ''),
-                        endDate: getValue($this, 'endDate', ''),
-                        daysOfWeekDisabled: getValue($this, 'disabledDays', ''),
-                        startView: getValue($this, 'startView', 0),
-                        language: "pt-BR"
+
+                        format: getValue($this, 'format', 'mm/mm/yyyy'),
+
+
                     },
                     $nxt = $this.next(),
                     $prv = $this.prev();

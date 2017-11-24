@@ -10,6 +10,7 @@ use Response;
 use App\Filiado as Filiado;
 use App\State;
 use App\Helpers\Mensagem;
+use Carbon\Carbon;
 class FiliadosController extends Controller
 {
 	public function index()
@@ -25,9 +26,6 @@ class FiliadosController extends Controller
 	{
 		$filiado = Filiado::all();
 		return Datatables::of($filiado)
-		->editColumn('dt_nascimento', function ($filiado) {
-			return date('d/m/Y', strtotime($filiado->dt_nascimento));
-		})
 		->addColumn('action', function($filiado){
 			return '<div class="btn-group">
           <a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
@@ -68,6 +66,7 @@ class FiliadosController extends Controller
 
 				$filiado = new Filiado();
 				$dados = $request->all();
+
 				$filiado->fill($dados);
 				$filiado->save();
 				\Session::flash('alerta',['tipo'=>'success','titulo'=>'Sucesso.','msg'=>Mensagem::get(2)]);
@@ -80,7 +79,8 @@ class FiliadosController extends Controller
 	{
 			$estados = State::all();
 			$filiado = Filiado::find($id);
-			//dd($estado);
+			$filiado['dt_nascimento']=date('d/m/Y', strtotime($filiado['dt_nascimento']));
+			// dd($filiado);
 			return view('filiados.editar',compact('filiado'))
 				->with(compact('estados'));
 
@@ -89,8 +89,7 @@ class FiliadosController extends Controller
 
 			$filiado = Filiado::find($id);
 
-			// $dados = $request->all();
-
+			$dados = $request->all();
 			$filiado->fill($dados);
 			$filiado->save();
 

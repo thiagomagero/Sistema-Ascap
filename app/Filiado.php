@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Filiado extends Model
 {
@@ -30,8 +31,12 @@ class Filiado extends Model
     'dt_filiacao'
   ];
 
-public function setDtNascimentoAttribute($valor){
-  $this->attributes['dt_nascimento'] = date('Y-m-d H:i', strtotime($valor));
-}
+  public function setDtNascimentoAttribute($valor){
+    $this->attributes['dt_nascimento'] = date('Y-d-m', strtotime($valor));
+  }
+  public function getDtNascimentoAttribute($valor){
+
+    return $this->attributes['dt_nascimento'] = date('d/m/Y', strtotime($valor));
+  }
 
 }

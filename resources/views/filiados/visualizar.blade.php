@@ -47,9 +47,39 @@
         </header>
         <div class="content-body">
           <div class="row ui-grids">
+          <div class="row">
+            <div class="col-sm-4">
+              Filiação: <strong>{{ isset($filiado->nome) ? $filiado->filiacao :'' }}</strong>
+            </div>
+            <div class="col-sm-4">
+              Filiação: <strong>{{ isset($filiado->nome) ? $filiado->dt_nascimento :'' }}</strong>
+            </div>
+            <div class="col-sm-4">
+              Filiação: <strong>{{ isset($filiado->nome) ? $filiado->filiacao :'' }}</strong>
+            </div>
+          </div>
 
           </div>
-            Nome Completo: {{ isset($filiado->nome) ? $filiado->nome :'' }}
+
+          </div>
+
+            Filiação:
+            Data de Nascimento:
+            Matrícula:
+            RG:
+            CPF:
+            Endereço:
+            Estado:
+            Cidade:
+            CEP:
+            Telefone Fixo:
+            Celular:
+            Lotação:
+            Setor:
+            Email:
+            Status:
+            Cargo:
+            Ação Judicial
         </div>
       </section>
     </div>
