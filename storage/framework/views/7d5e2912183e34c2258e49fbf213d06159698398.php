@@ -70,12 +70,15 @@
 <?php $__env->startPush('styles'); ?>
 <link href="<?php echo e(asset('plugins/select2/select2.css')); ?>" rel="stylesheet">
 <link href="<?php echo e(asset('plugins/icheck/skins/all.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('plugins/datepicker/css/datepicker.css')); ?>" rel="stylesheet">
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('scripts'); ?>
 <script src="<?php echo e(asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('plugins/select2/select2.min.js')); ?>" type="text/javascript"></script>
 <script src="<?php echo e(asset('plugins/icheck/icheck.min.js')); ?>" type="text/javascript"></script>
+
+<script src="<?php echo e(asset('plugins/datepicker/js/datepicker.js')); ?>" type="text/javascript"></script>
 
 <script type="text/javascript">
 var regras = {

@@ -52,7 +52,7 @@
                                 <th>Filiação</th>
                                 <th>Nascimento</th>
                                 <th>RG</th>
-                                <th><div style="width: 192px;">Ação</div></th>
+                                <th>Ação</th>
                               </tr>
                             </thead>
                           </table>
@@ -61,13 +61,23 @@
                 </div>
             </section></div>
 
-
         <!-- CORPO DA ÁREA PRINCIPAL FIM -->
     </section>
 </section>
 <!-- FIM DO CONTEÚDO -->
 @endsection
+@push('scripts')
+{{-- <script>
+$(document).on("click", ".openModal", function(event){
+  var rota = $(this).data("rota");
+  var modal = $(this).data("modal");
+  ajaxFireDados(rota,function(data) {
+      alert(data.dados.id);
 
+  });
+});
+</script> --}}
+@endpush
 @section('scripts')
   @include("dinamicos.js._jsfiliados")
 @endsection

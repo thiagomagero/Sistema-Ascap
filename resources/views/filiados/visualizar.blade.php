@@ -9,7 +9,7 @@
       <div class="page-title">
         <!-- TÍTULO PRINCIPAL DA PÁGINA INÍCIO -->
         <div class="pull-left">
-          <h1 class="title">Filiados</h1>
+          <h1 class="title">Visualizar Filiado</h1>
           <!-- BOTÕES INÍCIO -->
           <!-- <button class="btn btn-primary" type="button"><i class="fa fa-plus"></i><span> Cadastrar Novo</span></button> -->
           <!-- BOTÕES FIM -->
@@ -40,23 +40,16 @@
     <div class="col-lg-12">
       <section class="box ">
         <header class="panel_header">
-          <h2 class="title pull-left">Editando {{ isset($filiado->nome) ? $filiado->nome :'' }}</h2>
+          <h2 class="title pull-left">{{ isset($filiado->nome) ? $filiado->nome :'' }}</h2>
           <div class="actions panel_actions pull-right">
             <a class="box_toggle fa fa-chevron-down"></a>
           </div>
         </header>
         <div class="content-body">
-          <form id="formAtualizaFiliado" action="{{ route('filiados.atualizar',$filiado->id) }}" method="POST"  novalidate>
-            {{ csrf_field() }}
+          <div class="row ui-grids">
 
-            @include('filiados._formAdicionar')
-            <div class="row">
-              <div class="col-xs-4" style="margin-top:32px">
-                <input class="btn btn-primary" type="submit" value="Editar" />
-              </div>
-
-            </div>
-          </form>
+          </div>
+            Nome Completo: {{ isset($filiado->nome) ? $filiado->nome :'' }}
         </div>
       </section>
     </div>
@@ -77,7 +70,9 @@
 <script src="{{ asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('plugins/select2/select2.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+
 <script src="{{ asset('plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script>
+
 <script type="text/javascript">
 var regras = {
   cpf: {
@@ -90,7 +85,7 @@ var regras = {
   }
 };
 
-ajaxFire("formAtualizaFiliado",regras);
+ajaxFire("formAddFiliado",regras);
 
 </script>
 

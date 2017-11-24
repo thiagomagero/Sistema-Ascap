@@ -1,3 +1,20 @@
+function ajaxFireDados(rota, callback){
+    $.ajax({
+      url: rota,
+      type: "GET",
+      data : "",
+      beforeSend: function() {
+        $('.loading').show();
+      },
+      complete: function() {
+        $('.loading').hide();
+      },
+      success: callback,
+      error: function() {
+          toastr.error("Ocorreu um erro inesperado. Contate o suporte técnico da plataforma.",'Erro!');
+      }
+    });
+}
 function ajaxFire(idFormulario,regras){
   $.validator.setDefaults({ ignore: ":hidden:not(select)" });
   $("#"+idFormulario).validate({

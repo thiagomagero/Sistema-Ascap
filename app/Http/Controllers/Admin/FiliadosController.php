@@ -29,12 +29,20 @@ class FiliadosController extends Controller
 			return date('d/m/Y', strtotime($filiado->dt_nascimento));
 		})
 		->addColumn('action', function($filiado){
-			return '<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i>Show</a>' .
-			'<a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i>Editar</a>' .
-			'<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
+			return '<div class="btn-group">
+          <a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
+          <a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-responsive"><i class="glyphicon glyphicon-edit"></i></a>
+          <a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-danger btn-responsive"><i class="glyphicon glyphicon-trash"></i></a>
+        </div>';
 		})
 		->make(true);
 	}
+
+	// ->addColumn('action', function($filiado){
+	// 	return '<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i>Show</a>' .
+	// 	'<a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i>Editar</a>' .
+	// 	'<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
+	// })
 
 	public function adicionar(){
 		$estados = State::all();
@@ -81,7 +89,7 @@ class FiliadosController extends Controller
 
 			$filiado = Filiado::find($id);
 
-			$dados = $request->all();
+			// $dados = $request->all();
 
 			$filiado->fill($dados);
 			$filiado->save();
@@ -90,11 +98,15 @@ class FiliadosController extends Controller
 			return response()->json(['retorno'=>0,'redirect'=>route('filiados')]);
 	}
 
+	// public function visualizar($id){
+	// 	$dados = Filiado::find($id);
+	// 	return response()->json(compact('dados'));
+	// }
+
 	public function visualizar($id){
 		$filiado = Filiado::find($id);
-		return response()->json(['retorno'=>0,'redirect'=>null]);
+		return view('filiados.visualizar',compact('filiado'));
 	}
-
 
 
 }

@@ -51,7 +51,7 @@
                                 <th>Filiação</th>
                                 <th>Nascimento</th>
                                 <th>RG</th>
-                                <th><div style="width: 192px;">Ação</div></th>
+                                <th>Ação</th>
                               </tr>
                             </thead>
                           </table>
@@ -60,13 +60,14 @@
                 </div>
             </section></div>
 
-
         <!-- CORPO DA ÁREA PRINCIPAL FIM -->
     </section>
 </section>
 <!-- FIM DO CONTEÚDO -->
 <?php $__env->stopSection(); ?>
+<?php $__env->startPush('scripts'); ?>
 
+<?php $__env->stopPush(); ?>
 <?php $__env->startSection('scripts'); ?>
   <?php echo $__env->make("dinamicos.js._jsfiliados", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
