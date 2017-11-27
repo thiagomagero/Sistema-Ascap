@@ -378,6 +378,7 @@ class ComposerStaticInitbdd3da601805ebb063bfd5f56b773fe1
         'App\\Log' => __DIR__ . '/../..' . '/app/Log.php',
         'App\\LogAtividades' => __DIR__ . '/../..' . '/app/LogAtividades.php',
         'App\\Mensagem' => __DIR__ . '/../..' . '/app/Mensagem.php',
+        'App\\Pagamento' => __DIR__ . '/../..' . '/app/Pagamento.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

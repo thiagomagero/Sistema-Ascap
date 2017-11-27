@@ -52,7 +52,7 @@
             </a>
             <ul class="sub-menu" >
                 <li>
-                    <a class="" href="#" >Informar Pagamento</a>
+                    <a class="@if(Route::current()->getName() == 'pagamentos') active @endif" href="{{ route('pagamentos') }}" >Informar Pagamento</a>
                 </li>
                 <li>
                     <a class="" href="#" >Consultar</a>

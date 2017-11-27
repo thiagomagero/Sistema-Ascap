@@ -29,6 +29,11 @@ class FiliadosSeeds extends Seeder
         'acao_judicial' => $faker->numberBetween(0,1),
         'endereco' => $faker->address,
         'uf' => $faker->stateAbbr,
+        'lotacao' => $faker->text($maxNbChars = 10),
+        'tp_cargo' => 'TPPG',
+        'setor' => $faker->text($maxNbChars = 10),
+        'slug_nome' => $faker->slug,
+
 			]);
 		}
     }

@@ -66,7 +66,10 @@
 </section>
 <!-- FIM DO CONTEÚDO -->
 @endsection
+
 @push('scripts')
+  <script src="{{ asset('plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script>
+  @include('filiados._js._jsFiliados')
 {{-- <script>
 $(document).on("click", ".openModal", function(event){
   var rota = $(this).data("rota");

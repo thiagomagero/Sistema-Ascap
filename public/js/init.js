@@ -53,54 +53,7 @@ function ajaxFire(idFormulario,regras){
     }
   });
 }
-if ($.isFunction($.fn.select2)) {
-
-    $("#s2example-1").select2({
-        placeholder: 'Select your country...',
-        allowClear: true
-    }).on('select2-open', function() {
-        // Adding Custom Scrollbar
-        $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-    });
-
-
-    $("#s2example-2").select2({
-        placeholder: 'Choose your favorite US Countries',
-        allowClear: true
-    }).on('select2-open', function() {
-        // Adding Custom Scrollbar
-        $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-    });
-
-
-    $("#s2example-4").select2({
-        minimumInputLength: 1,
-        placeholder: 'Search',
-        ajax: {
-            url: "data/select2-remote-data.php",
-            dataType: 'json',
-            quietMillis: 100,
-            data: function(term, page) {
-                return {
-                    limit: -1,
-                    q: term
-                };
-            },
-            results: function(data, page) {
-                return {
-                    results: data
-                }
-            }
-        },
-        formatResult: function(student) {
-            return "<div class='select2-user-result'>" + student.name + "</div>";
-        },
-        formatSelection: function(student) {
-            return student.name;
-        }
-
-    });
-}
+$(".moedaReal").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: false});
 function limpaElementos(){
   $(this)
   .find("input,textarea,select")

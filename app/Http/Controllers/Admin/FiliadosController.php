@@ -11,6 +11,7 @@ use App\Filiado as Filiado;
 use App\State;
 use App\Helpers\Mensagem;
 use Carbon\Carbon;
+use App\Helpers\LogAtividades;
 class FiliadosController extends Controller
 {
 	public function index()
@@ -28,10 +29,10 @@ class FiliadosController extends Controller
 		return Datatables::of($filiado)
 		->addColumn('action', function($filiado){
 			return '<div class="btn-group">
-          <a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
-          <a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-responsive"><i class="glyphicon glyphicon-edit"></i></a>
-          <a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-danger btn-responsive"><i class="glyphicon glyphicon-trash"></i></a>
-        </div>';
+			<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
+			<a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-responsive"><i class="glyphicon glyphicon-edit"></i></a>
+			<button  data-rota="/filiados/deletar/'.$filiado->id.'" class="btn btn-danger btn-responsive deletar"><i class="glyphicon glyphicon-trash"></i></button>
+			</div>';
 		})
 		->make(true);
 	}
@@ -45,7 +46,7 @@ class FiliadosController extends Controller
 	public function adicionar(){
 		$estados = State::all();
 		return view('filiados.adicionar')
-			->with(compact('estados'));;
+		->with(compact('estados'));;
 
 	}
 
@@ -77,24 +78,25 @@ class FiliadosController extends Controller
 	}
 	public function editar($id)
 	{
-			$estados = State::all();
-			$filiado = Filiado::find($id);
-			$filiado['dt_nascimento']=date('d/m/Y', strtotime($filiado['dt_nascimento']));
-			// dd($filiado);
-			return view('filiados.editar',compact('filiado'))
-				->with(compact('estados'));
+		$estados = State::all();
+		$filiado = Filiado::find($id);
+		$filiado['dt_nascimento']=date('d/m/Y', strtotime($filiado['dt_nascimento']));
+		// dd($filiado);
+		return view('filiados.editar',compact('filiado'))
+		->with(compact('estados'));
 
 	}
 	public function atualizar(Request $request, $id){
 
-			$filiado = Filiado::find($id);
+		$filiado = Filiado::find($id);
 
-			$dados = $request->all();
-			$filiado->fill($dados);
-			$filiado->save();
+		$dados = $request->all();
 
-			\Session::flash('alerta',['tipo'=>'success','titulo'=>'Atualizado!','msg'=>Mensagem::get(4)]);
-			return response()->json(['retorno'=>0,'redirect'=>route('filiados')]);
+		$filiado->fill($dados);
+		$filiado->save();
+
+		\Session::flash('alerta',['tipo'=>'success','titulo'=>'Atualizado!','msg'=>Mensagem::get(4)]);
+		return response()->json(['retorno'=>0,'redirect'=>route('filiados')]);
 	}
 
 	// public function visualizar($id){
@@ -104,7 +106,31 @@ class FiliadosController extends Controller
 
 	public function visualizar($id){
 		$filiado = Filiado::find($id);
+		switch ($filiado['status']) {
+			case 0:
+			$status = "Desfiliado";
+			break;
+			case 1:
+			$status = "Filiado";
+			break;
+		}
+		$filiado['status'] = $status;
 		return view('filiados.visualizar',compact('filiado'));
+	}
+	public function deletar($id)
+	{
+		$filiado = Filiado::find($id);
+			$filiado->delete();
+		\Session::flash('alerta',['tipo'=>'success','titulo'=>'Removido!','msg'=>'Filiado '.$filiado->nome.' removido com sucesso']);
+		LogAtividades::addToLog('Deletou o filiado '.$filiado->nome);
+		return response()->json(['retorno'=>0,'redirect'=>route('filiados')]);
+	}
+
+
+	public function listaFiliadosPagamentos($q){
+		$results = Filiado::select('id', 'nome','slug_nome','cpf')->where('nome', 'LIKE', '%' . $q . '%')->orWhere('cpf', 'LIKE', '%' . $q . '%')->get();
+
+		return Response::json($results);
 	}
 
 

@@ -28,8 +28,14 @@ class Filiado extends Model
     'email',
     'acao_judicial',
     'status',
-    'dt_filiacao'
+    'dt_filiacao',
+    'slug_nome'
   ];
+
+  public function setSlugNomeAttribute($valor){
+    $this->attributes['slug_nome'] = str_slug($this->attributes['nome']);
+  }
+
 
   public function setDtNascimentoAttribute($valor){
     $this->attributes['dt_nascimento'] = date('Y-d-m', strtotime($valor));
@@ -37,6 +43,19 @@ class Filiado extends Model
   public function getDtNascimentoAttribute($valor){
 
     return $this->attributes['dt_nascimento'] = date('d/m/Y', strtotime($valor));
+  }
+  public function getStatus(){
+
+    switch ($valor) {
+    case 0:
+        $status = "Desfiliado";
+        break;
+    case 1:
+        $status = "Filiado";
+        break;
+      }
+
+    return $this->attributes['status'] = 5;
   }
 
 }

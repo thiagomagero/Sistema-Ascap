@@ -2739,10 +2739,13 @@ jQuery(function($) {
             $(".datepicker").each(function(i, e) {
                 var $this = $(e),
                     options = {
-
-                        format: getValue($this, 'format', 'mm/mm/yyyy'),
-
-
+                        minViewMode: getValue($this, 'minViewMode', 0),
+                        format: getValue($this, 'format', 'mm/dd/yyyy'),
+                        startDate: getValue($this, 'startDate', ''),
+                        endDate: getValue($this, 'endDate', ''),
+                        daysOfWeekDisabled: getValue($this, 'disabledDays', ''),
+                        startView: getValue($this, 'startView', 0),
+                        autoclose: true
                     },
                     $nxt = $this.next(),
                     $prv = $this.prev();
@@ -3197,7 +3200,7 @@ jQuery(function($) {
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 // You can also prefetch suggestions
                 // prefetch: 'data/typeahead-generate.php',
-                remote: 'data/typeahead-generate.php?q=%QUERY'
+                remote: '../data/typeahead-generate.php?q=%QUERY'
             });
 
             name_randomizer.initialize();

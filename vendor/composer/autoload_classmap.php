@@ -29,6 +29,7 @@ return array(
     'App\\Log' => $baseDir . '/app/Log.php',
     'App\\LogAtividades' => $baseDir . '/app/LogAtividades.php',
     'App\\Mensagem' => $baseDir . '/app/Mensagem.php',
+    'App\\Pagamento' => $baseDir . '/app/Pagamento.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

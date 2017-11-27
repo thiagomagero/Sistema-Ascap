@@ -2,6 +2,7 @@
 	<div class="col-xs-12">
 		<label class="form-label" for="">Nome:</label>
 			<input type="text" class="form-control" name="nome" value="{{ isset($filiado->nome) ? $filiado->nome :'' }}" required>
+			<input type="hidden" class="form-control" name="slug_nome" value=" ">
 	</div>
 
 </div>

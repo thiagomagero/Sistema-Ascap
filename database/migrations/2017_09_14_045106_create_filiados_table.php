@@ -18,6 +18,7 @@ class CreateFiliadosTable extends Migration
             $table->increments('id');
             $table->string('cpf',11);
             $table->string('nome', 100)->nullable()->default(null);
+            $table->string('slug_nome', 191)->nullable()->default(null);
             $table->string('matricula', 50)->nullable()->default(null);
             $table->string('filiacao', 100)->nullable()->default(null);
             $table->date('dt_nascimento')->nullable()->default(null);

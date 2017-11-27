@@ -48,6 +48,17 @@ Route::group(['middleware'=>'auth'], function(){
 
 	Route::post('/filiados/atualizar/{id}',['as'=>'filiados.atualizar', 'uses'=>'Admin\FiliadosController@atualizar']);
 	Route::get('/filiados/visualizar/{id}',['as'=>'filiados.visualizar', 'uses'=>'Admin\FiliadosController@visualizar']);
+	Route::get('/filiados/deletar/{id}',['as'=>'filiados.deletar', 'uses'=>'Admin\FiliadosController@deletar']);
+
+
+	// PAGAMENTOS
+	Route::get('/pagamentos',['as'=>'pagamentos', 'uses'=>'Admin\PagamentosController@index']);
+
+	Route::get('/pagamentos/listaFiliados/{q}',['as'=>'pagamentos.listafiliados', 'uses'=>'Admin\FiliadosController@listaFiliadosPagamentos']);
+	Route::get('/pagamentos/{filiado_id}/{nome?}',['as'=>'pagamentos.filiado', 'uses'=>'Admin\PagamentosController@porFiliado']);
+
+	Route::post('/pagamento/salvar',['as'=>'pagamento.salvar', 'uses'=>'Admin\PagamentosController@salvar']);
+
 });
 // FIM MIDDLEWARE AUTH
 Route::get('/',['as'=>'login', function(){

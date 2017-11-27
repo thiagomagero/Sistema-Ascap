@@ -30,6 +30,9 @@
   <link href="{{ asset('plugins/datatables/css/datatables.bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/toast/toastr.min.css') }}" rel="stylesheet">
   <link href="{{ asset('plugins/sweetalert/dist/sweetalert.css') }}" rel="stylesheet">
+  <link href="{{ asset('plugins/datepicker/css/datepicker.css') }}" rel="stylesheet">
+  <link href="{{ asset('plugins/select2/select2.css') }}" rel="stylesheet">
+  <link href="{{ asset('plugins/icheck/skins/all.css') }}" rel="stylesheet">
   <!-- CORE CSS FRAMEWORK - FIM -->
 
 
@@ -81,6 +84,12 @@
   <script src="{{ asset('plugins/sweetalert/dist/sweetalert.min.js') }}"></script>
   <script src="{{ asset('plugins/jquery-validation/js/jquery.validate.min.js') }}"></script>
   <script src="{{ asset('plugins/jquery-validation/js/metodos-adicionais.min.js') }}"></script>
+  <script src="{{ asset('plugins/datepicker/js/datepicker.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/icheck/icheck.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('plugins/inputmask/min/jquery.inputmask.bundle.min.js') }}" type="text/javascript"></script>
+
+  <script src="{{ asset('plugins/maskmoney/min/jquery.maskMoney.min.js') }}" type="text/javascript"></script>
   <!-- CORE JS FRAMEWORK - FIM -->
 
 
