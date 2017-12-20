@@ -13,9 +13,8 @@
 
 // MIDDLEWARE AUTH PROTEGE AS ROTAS ENQUANTO O USUARIO NÃO ESTIVER LOGADO
 Route::group(['middleware'=>'auth'], function(){
-	Route::get('/painel',['as'=>'painel', function(){
-		return view('painel');
-	}]);
+	Route::get('/painel',['as'=>'painel', 'uses'=>'indexPainel@index']);
+
 	//Rota para logout
 	Route::get('/sair',['as'=>'sair', 'uses'=>'Admin\UsuarioController@sair']);
 	//Index usuários

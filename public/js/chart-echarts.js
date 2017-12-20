@@ -19,353 +19,9 @@ jQuery(function($) {
      --------------------------------*/
     CRESTADMIN_SETTINGS.dashboardEcharts = function() {
 
-
-        /*------------- Chart 1 ----------------*/
-if($("#browser_type").length){
-      // Initialize after dom ready
-       var myChart = echarts.init(document.getElementById('browser_type')); 
-        
-        var option = {
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 20,
-                    x2: 20,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-
-                // Add tooltip
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: { 
-                        type: 'shadow', // line|shadow
-                        lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
-                        shadowStyle:{color: 'rgba(0,0,0,.1)'}
-                      }
-                },
-
-                // Add legend
-                legend: {
-                    data: []
-                },
-                toolbox: {
-                  orient: 'vertical',
-                    show : true,
-                    showTitle: true,
-                    color : ['#bdbdbd','#bdbdbd','#bdbdbd','#bdbdbd'],
-                    feature : {
-                        mark : {show: false},
-                        dataZoom : {
-                            show : true,
-                            title : {
-                                dataZoom : 'Data Zoom',
-                                dataZoomReset : 'Reset Zoom'
-                            }
-                        },
-                        dataView : {show: false, readOnly: true},
-                        magicType : {
-                          show: true, 
-                          title : {
-                              line : 'Area',
-                              bar : 'Bar'
-                          },
-                          type: ['line', 'bar']
-                        },
-                        restore : {show: false},
-                        saveAsImage : {show: true,title:'Save as Image'}
-                    }
-                },
-
-                // Enable drag recalculate
-                calculable: true,
-
-                // Horizontal axis
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['Chrome','Firefox','Safari','Opera','IE'],
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                }],
-
-                // Vertical axis
-                yAxis: [{
-                    type: 'value',
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: 'fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                    axisLabel: {
-                        show: false,
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },                    
-                    axisLine: {
-                        show: false,
-                        onZero: true,
-                        lineStyle: {
-                            color: '#ff0000',
-                            type: 'solid',
-                            width: '0',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },
-
-
-                }],
-
-                // Add series
-                series: [
-                    {
-                        name: 'Total Visits',
-                        type: 'line',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        itemStyle: {
-                          normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:4, borderColor:'rgba(86,80,144,1)', 
-                            areaStyle: {color:'rgba(86,80,144,1.0)', type: 'default'}
-                          }
-                        },
-
-                        data: [500,200,322,212,99]
-                    }]
-            };
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
-
-
-
-
-        /*-------------- Chart 2 ---------------*/
-if($("#user_type").length){
-// Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('user_type')); 
-        
-        var option = {
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 20,
-                    x2: 20,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-
-                // Add tooltip
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: { 
-                        type: 'shadow', // line|shadow
-                        lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
-                        shadowStyle:{color: 'rgba(0,0,0,.1)'}
-                      }
-                },
-
-                // Add legend
-                legend: {
-                    data: []
-                },
-                toolbox: {
-                  orient: 'vertical',
-                    show : true,
-                    showTitle: true,
-                    color : ['#bdbdbd','#bdbdbd','#bdbdbd','#bdbdbd'],
-                    feature : {
-                        mark : {show: false},
-                        dataZoom : {
-                            show : true,
-                            title : {
-                                dataZoom : 'Data Zoom',
-                                dataZoomReset : 'Reset Zoom'
-                            }
-                        },
-                        dataView : {show: false, readOnly: true},
-                        magicType : {
-                          show: true, 
-                          title : {
-                              line : 'Area',
-                              bar : 'Bar',
-                              stack : 'Stacked Bar',
-                              tiled: 'Tiled Bar'
-                          },
-                          type: ['line', 'bar','stack','tiled']
-                        },
-                        restore : {show: false},
-                        saveAsImage : {show: true,title:'Save as Image'}
-                    }
-                },
-
-                // Enable drag recalculate
-                calculable: true,
-
-                // Horizontal axis
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['2016-06-01','2016-05-01','2016-04-01','2016-03-01','2016-02-01'],
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                }],
-
-                // Vertical axis
-                yAxis: [{
-                    type: 'value',
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: 'fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                    axisLabel: {
-                        show: false,
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },                    
-                    axisLine: {
-                        show: false,
-                        onZero: true,
-                        lineStyle: {
-                            color: '#ff5f74',
-                            type: 'solid',
-                            width: '0',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },
-
-
-                }],
-
-                // Add series
-                series: [
-                    {
-                        name: 'Registered Users',
-                        type: 'line',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        barWidth:15,
-                        barGap:'10%',
-                        itemStyle: {
-                          normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:2, borderColor:'rgba(86,80,144,1)', 
-                            areaStyle: {color:'rgba(86,80,144,1)', type: 'default'}
-                          }
-                        },
-
-                        data: [2323,2144,4534,1989,3232,2323,2144,4534,1989,3232,2323,2144,4534,1989,3232]
-                    },
-                    {
-                        name: 'Guest Visitors',
-                        type: 'line',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        barWidth:15,
-                        barGap:'10%',
-                        itemStyle: {
-                          normal: {
-                            color:'#ff5f74', 
-                            borderWidth:2, borderColor:'#ff5f74', 
-                            areaStyle: {color:'#ff5f74', type: 'default'}
-                          }
-                        },
-
-                        data: [5656,6567,7675,3423,4343,5656,6567,7675,3423,4343,5656,6567,7675,3423,4343]
-                    },
-                ]
-            };
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
-
-
-
-        /*--------------- Chart 3 -------------*/
+      /*--------------- Chart 3 -------------*/
 if($("#platform_type_dates").length){
-var myChart = echarts.init(document.getElementById('platform_type_dates')); 
+var myChart = echarts.init(document.getElementById('platform_type_dates'));
 
 var idx = 1;
 var option_dt = {
@@ -416,7 +72,7 @@ var option_dt = {
                 x: 'left',
                 orient:'vertical',
                 padding: 0,
-                data:['Apple','Windows','Linux','Android','Others']
+                data:['Apple','FOI','Linux','Android','Others']
             },
             toolbox: {
                 show : true,
@@ -425,7 +81,7 @@ var option_dt = {
                     mark : {show: false},
                     dataView : {show: false, readOnly: true},
                     magicType : {
-                        show: true, 
+                        show: true,
                         type: ['pie', 'funnel'],
                         option: {
                             funnel: {
@@ -460,7 +116,7 @@ var option_dt = {
                                     data:[{value: 35,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
                                 }
                             ]
-                    }, 
+                    },
                 {
                     series : [
                         {
@@ -483,7 +139,7 @@ var option_dt = {
     ] // end options object
 };
 
-myChart.setOption(option_dt);        
+myChart.setOption(option_dt);
 
 
 }
@@ -491,802 +147,14 @@ myChart.setOption(option_dt);
 
 
 
-
-            /*----------------- Chart 4 ------------------*/
-if($("#page_views_today").length){
-
-// Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('page_views_today')); 
-        
-        var option = {
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 20,
-                    x2: 20,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-
-                // Add tooltip
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: { 
-                        type: 'shadow', // line|shadow
-                        lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
-                        shadowStyle:{color: 'rgba(0,0,0,.1)'}
-                      }
-                },
-
-                // Add legend
-                legend: {
-                    data: []
-                },
-                toolbox: {
-                  orient: 'vertical',
-                    show : true,
-                    showTitle: true,
-                    color : ['#bdbdbd','#bdbdbd','#bdbdbd','#bdbdbd'],
-                    feature : {
-                        mark : {show: false},
-                        dataZoom : {
-                            show : true,
-                            title : {
-                                dataZoom : 'Data Zoom',
-                                dataZoomReset : 'Reset Zoom'
-                            }
-                        },
-                        dataView : {show: false, readOnly: true},
-                        magicType : {
-                          show: true, 
-                          title : {
-                              line : 'Line',
-                              bar : 'Bar',
-                          },
-                          type: ['line', 'bar'],
-                          option: {
-                            /*line: {
-                                itemStyle: {
-                                  normal: {
-                                    color:'rgba(3,1,1,1.0)', 
-                                  }
-                                },
-                                data: [1,2,3,4,5,6,7,8,9,10,11,12]
-                            }*/
-                          }
-                        },
-                        restore : {show: false},
-                        saveAsImage : {show: true,title:'Save as Image'}
-                    }
-                },
-
-                // Enable drag recalculate
-                calculable: true,
-
-                // Horizontal axis
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    data: [
-                        '0h-2h', '2h-4h', '4h-6h', '6h-8h', '8h-10h', '10h-12h', '12h-14h', '14h-16h', '16h-18h', '18h-20h', '20h-22h', '22h-24h'
-                    ],
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                }],
-
-                // Vertical axis
-                yAxis: [{
-                    type: 'value',
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: 'fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                    axisLabel: {
-                        show: false,
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },                    
-                    axisLine: {
-                        show: false,
-                        onZero: true,
-                        lineStyle: {
-                            color: '#ff0000',
-                            type: 'solid',
-                            width: '0',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },
-
-
-                }],
-
-                // Add series
-                series: [
-                    {
-                        name: 'Page Views',
-                        type: 'line',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        barWidth:10,
-                        itemStyle: {
-                          normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:2, borderColor:'rgba(86,80,144,1)', 
-                            areaStyle: {color:'rgba(86,80,144,0)', type: 'default'}
-                          }
-                        },
-
-                        data: [1545,1343,1445,2675,2878,1789,1745,2343,2445,1675,1878,2789,1545,1343,1445,2675,2878,1789,1745,2343,2445,1675,1878,2789]
-                    }
-                ]
-            };
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
-
-
-
-
-
-
-
-
-
-            /*----------------- Chart 5 ------------------*/
-
-if($("#scatter_chart").length){
-// Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('scatter_chart')); 
-        
-        var option = {
-            color: ['rgba(86,80,144,1.0)','#ff5f74'],
-    title : {
-       // text: '',
-       // subtext: ''
-    },
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 20,
-                    x2: 20,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-    tooltip : {
-        trigger: 'axis',
-        showDelay : 0,
-        formatter : function (params) {
-            if (params.value.length > 1) {
-                return params.seriesName + '<br/>'
-                   + params.value[0] + ' : Social Media<br/>' 
-                   + params.value[1] + ' : Advertisement';
-            }
-            else {
-                return params.seriesName + ' :<br/>'
-                   + params.name + ' : '
-                   + params.value + 'Advertisement';
-            }
-        },  
-        axisPointer:{
-            show: false,
-            type : 'none',
-            lineStyle: {
-                type : 'dashed',
-                width : 0
-            }
-        }
-    },
-    legend: {
-        data:['2016','2015']
-    },
-    toolbox: {
-        show : true,
-        feature : {
-            mark : {show: false},
-            dataZoom : {show: true},
-            dataView : {show: false, readOnly: false},
-            restore : {show: false},
-            saveAsImage : {show: true}
-        }
-    },
-    xAxis : [
-        {
-            type : 'value',
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-            scale:true,
-            axisLabel : {
-                formatter: '{value}'
-            }
-        }
-    ],
-    yAxis : [
-        {
-            show:false,
-            type : 'value',
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-            scale:true,
-            axisLabel : {
-                formatter: '{value}'
-            }
-        }
-    ],
-    series : [
-        {
-            name:'2016',
-            type:'scatter',
-            data: [[161, 51], [167, 59], [159, 49], [157, 63], [155, 53],
-                [170, 59], [159, 47], [166, 69], [176, 66], [160, 75],
-                [172, 55], [170, 54], [172, 62], [153, 42], [160, 50],
-                [147, 49], [168, 49], [175, 73], [157, 47], [167, 68]
-
-            ],
-            markPoint : {
-                show:false,
-                data : [
-                    {type : 'max', name: ''},
-                    {type : 'min', name: ''}
-                ]
-            },
-            /*markLine : {
-                show:false,
-                data : [
-                    {type : '', name: ''}
-                ]
-            }*/
-        },
-        {
-            name:'2015',
-            type:'scatter',
-            data: [[174, 65], [175, 71], [193, 80], [186, 72], [187, 78],
-                [181, 74], [184, 86], [184, 78], [175, 62], [184, 81],
-                [180, 76], [177, 83], [192, 90], [176, 74], [174, 71],
-                [184, 79], [192, 93], [171, 70], [173, 72], [176, 85]
-                
-            ],
-            markPoint : {
-                show:false,
-                data : [
-                    {type : 'max', name: ''},
-                    {type : 'min', name: ''}
-                ]
-            },
-            /*markLine : {
-                show:false,
-                data : [
-                    {type : 'average', name: ''}
-                ]
-            }*/
-        }
-    ]
-};
-                    
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
-
-
-
-            /*----------------- Chart 6 ------------------*/
-if($("#gauge_chart").length){
-
-// Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('gauge_chart')); 
-        
-        var option = {
-                        
-                tooltip : {
-                    formatter: "{b} : {c}%"
-                },
-                toolbox: {
-                    show : false,
-                    feature : {
-                        mark : {show: false},
-                        restore : {show: false},
-                        saveAsImage : {show: true}
-                    }
-                },
-                series : [
-                    {
-                        name:'Server Load',
-                        type:'gauge',
-                        center: ['50%', '50%'],
-                        radius: ['0%', '100%'],
-                        axisLine: {
-                            show: true,
-                            lineStyle: {
-                                color: [
-                                    [0.2, '#fa74ad'],
-                                    [0.8, 'rgba(86,80,144,1)'],
-                                    [1, '#ff5f74']
-                                ],
-                                width: 10
-                            }
-                        }  ,
-                        title: {
-                            show : false,
-                            offsetCenter: [0, '120%'],
-                            textStyle: {
-                                color: '#333',
-                                fontSize : 15
-                            }
-                        }  ,
-                        detail: {
-                            show : true,
-                            backgroundColor: 'rgba(0,0,0,0)',
-                            borderWidth: 0,
-                            borderColor: '#ccc',
-                            width: 100,
-                            height: 40,
-                            offsetCenter: [0, '40%'],
-                            formatter:'{value}%',
-                            textStyle: {
-                                color: 'auto',
-                                fontSize : 20
-                            }
-                        },
-                       
-                        data:[{value: 50, name: 'Server Load (MB)'}]
-                    }
-             ]
-};
-
-//myChart.setOption(option);
-gauge_load_chart(option);
-var timeTicket = setInterval(function (){
-    gauge_load_chart(option);
-},1500);
-
-function gauge_load_chart(option){
-    option.series[0].data[0].value = (Math.random()*100).toFixed(2) - 0;
-    myChart.setOption(option,true);
-}
-
-
-//clearInterval(timeTicket);
-
-
-}
-
-
-
-
-
-
-
-
-            /*----------------- Chart 4 ------------------*/
-if($("#page_views_today_bar").length){
-
-// Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('page_views_today_bar')); 
-        
-        var option = {
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 50,
-                    x2: 50,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-
-                // Add tooltip
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: { 
-                        type: 'shadow', // line|shadow
-                        lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
-                        shadowStyle:{color: 'rgba(0,0,0,.1)'}
-                      }
-                },
-
-                // Add legend
-                legend: {
-                    data: []
-                },
-                toolbox: {
-                  orient: 'vertical',
-                    show : true,
-                    showTitle: true,
-                    color : ['#bdbdbd','#bdbdbd','#bdbdbd','#bdbdbd'],
-                    feature : {
-                        mark : {show: false},
-                        dataZoom : {
-                            show : true,
-                            title : {
-                                dataZoom : 'Data Zoom',
-                                dataZoomReset : 'Reset Zoom'
-                            }
-                        },
-                        dataView : {show: false, readOnly: true},
-                        magicType : {
-                          show: true, 
-                          title : {
-                              line : 'Line',
-                              bar : 'Bar',
-                          },
-                          type: ['line', 'bar'],
-                          option: {
-                            /*line: {
-                                itemStyle: {
-                                  normal: {
-                                    color:'rgba(3,1,1,1.0)', 
-                                  }
-                                },
-                                data: [1,2,3,4,5,6,7,8,9,10,11,12]
-                            }*/
-                          }
-                        },
-                        restore : {show: false},
-                        saveAsImage : {show: true,title:'Save as Image'}
-                    }
-                },
-
-                // Enable drag recalculate
-                calculable: true,
-
-                // Horizontal axis
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    data: [
-                        '0h-2h', '2h-4h', '4h-6h', '6h-8h', '8h-10h', '10h-12h', '12h-14h', '14h-16h', '16h-18h', '18h-20h', '20h-22h', '22h-24h'
-                    ],
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                }],
-
-                // Vertical axis
-                yAxis: [{
-                    type: 'value',
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: 'fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                    axisLabel: {
-                        show: false,
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },                    
-                    axisLine: {
-                        show: false,
-                        onZero: true,
-                        lineStyle: {
-                            color: '#ff0000',
-                            type: 'solid',
-                            width: '0',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },
-
-
-                }],
-
-                // Add series
-                series: [
-                    {
-                        name: 'Page Views',
-                        type: 'bar',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        barWidth:30,
-                        itemStyle: {
-                          normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:2, borderColor:'rgba(86,80,144,1)', 
-                            areaStyle: {color:'rgba(86,80,144,0)', type: 'default'}
-                          }
-                        },
-
-                        data: [1545,1343,1445,2675,2878,1789,1745,2343,2445,1675,1878,2789,1545,1343,1445,2675,2878,1789,1745,2343,2445,1675,1878,2789]
-                    }
-                ]
-            };
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
-
-
-
-
-        /*------------- Chart 1 ----------------*/
-if($("#browser_type_bar").length){
-      // Initialize after dom ready
-       var myChart = echarts.init(document.getElementById('browser_type_bar')); 
-        
-        var option = {
-
-                // Setup grid
-                grid: {
-                    zlevel: 0,
-                    x: 50,
-                    x2: 50,
-                    y: 20,
-                    y2: 20,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(0,0,0,0)',
-                    borderColor: 'rgba(0,0,0,0)',
-                },
-
-                // Add tooltip
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: { 
-                        type: 'shadow', // line|shadow
-                        lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
-                        shadowStyle:{color: 'rgba(0,0,0,.1)'}
-                      }
-                },
-
-                // Add legend
-                legend: {
-                    data: []
-                },
-                toolbox: {
-                  orient: 'vertical',
-                    show : true,
-                    showTitle: true,
-                    color : ['#bdbdbd','#bdbdbd','#bdbdbd','#bdbdbd'],
-                    feature : {
-                        mark : {show: false},
-                        dataZoom : {
-                            show : true,
-                            title : {
-                                dataZoom : 'Data Zoom',
-                                dataZoomReset : 'Reset Zoom'
-                            }
-                        },
-                        dataView : {show: false, readOnly: true},
-                        magicType : {
-                          show: true, 
-                          title : {
-                              line : 'Area',
-                              bar : 'Bar'
-                          },
-                          type: ['line', 'bar']
-                        },
-                        restore : {show: false},
-                        saveAsImage : {show: true,title:'Save as Image'}
-                    }
-                },
-
-                // Enable drag recalculate
-                calculable: true,
-
-                // Horizontal axis
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['Chrome','Firefox','Safari','Opera','IE'],
-                    axisLine: {
-                        show: true,
-                        onZero: true,
-                        lineStyle: {
-                            color: 'rgba(86,80,144,1.0)',
-                            type: 'solid',
-                            width: '2',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: '#fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                }],
-
-                // Vertical axis
-                yAxis: [{
-                    type: 'value',
-                    splitLine: {
-                          show: false,
-                          lineStyle: {
-                              color: 'fff',
-                              type: 'solid',
-                              width: 0,
-                              shadowColor: 'rgba(0,0,0,0)',
-                        },
-                    },
-                    axisLabel: {
-                        show: false,
-                    },                    
-                    axisTick: {
-                        show: false,
-                    },                    
-                    axisLine: {
-                        show: false,
-                        onZero: true,
-                        lineStyle: {
-                            color: '#ff0000',
-                            type: 'solid',
-                            width: '0',
-                            shadowColor: 'rgba(0,0,0,0)',
-                            shadowBlur: 5,
-                            shadowOffsetX: 3,
-                            shadowOffsetY: 3,
-                        },
-                    },
-
-
-                }],
-
-                // Add series
-                series: [
-                    {
-                        name: 'Total Visits',
-                        type: 'bar',
-                        smooth: true,
-                        symbol:'none',
-                        symbolSize:2,
-                        showAllSymbol: true,
-                        itemStyle: {
-                          normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:4, borderColor:'rgba(86,80,144,1)', 
-                            areaStyle: {color:'rgba(86,80,144,1.0)', type: 'default'}
-                          }
-                        },
-
-                        data: [500,200,322,212,99]
-                    }]
-            };
-
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
-
-}
 
 
 
         /*-------------- Chart 2 ---------------*/
 if($("#user_type_bar").length){
 // Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('user_type_bar')); 
-        
+        var myChart = echarts.init(document.getElementById('user_type_bar'));
+
         var option = {
 
                 // Setup grid
@@ -1304,7 +172,7 @@ if($("#user_type_bar").length){
                 // Add tooltip
                 tooltip: {
                     trigger: 'axis',
-                    axisPointer: { 
+                    axisPointer: {
                         type: 'shadow', // line|shadow
                         lineStyle:{color: 'rgba(0,0,0,.5)', width: 1},
                         shadowStyle:{color: 'rgba(0,0,0,.1)'}
@@ -1331,7 +199,7 @@ if($("#user_type_bar").length){
                         },
                         dataView : {show: false, readOnly: true},
                         magicType : {
-                          show: true, 
+                          show: true,
                           title : {
                               line : 'Area',
                               bar : 'Bar',
@@ -1365,7 +233,7 @@ if($("#user_type_bar").length){
                             shadowOffsetX: 3,
                             shadowOffsetY: 3,
                         },
-                    },                    
+                    },
                     axisTick: {
                         show: false,
                     },
@@ -1394,10 +262,10 @@ if($("#user_type_bar").length){
                     },
                     axisLabel: {
                         show: false,
-                    },                    
+                    },
                     axisTick: {
                         show: false,
-                    },                    
+                    },
                     axisLine: {
                         show: false,
                         onZero: true,
@@ -1428,8 +296,8 @@ if($("#user_type_bar").length){
                         barGap:'10%',
                         itemStyle: {
                           normal: {
-                            color:'rgba(86,80,144,1.0)', 
-                            borderWidth:2, borderColor:'rgba(86,80,144,1)', 
+                            color:'rgba(86,80,144,1.0)',
+                            borderWidth:2, borderColor:'rgba(86,80,144,1)',
                             areaStyle: {color:'rgba(86,80,144,1)', type: 'default'}
                           }
                         },
@@ -1447,8 +315,8 @@ if($("#user_type_bar").length){
                         barGap:'10%',
                         itemStyle: {
                           normal: {
-                            color:'#ff5f74', 
-                            borderWidth:2, borderColor:'#ff5f74', 
+                            color:'#ff5f74',
+                            borderWidth:2, borderColor:'#ff5f74',
                             areaStyle: {color:'#ff5f74', type: 'default'}
                           }
                         },
@@ -1458,8 +326,8 @@ if($("#user_type_bar").length){
                 ]
             };
 
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
+        // Load data into the ECharts instance
+        myChart.setOption(option);
 
 }
 
@@ -1471,8 +339,8 @@ if($("#user_type_bar").length){
 
 if($("#scatter_chart_inside").length){
 // Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('scatter_chart_inside')); 
-        
+        var myChart = echarts.init(document.getElementById('scatter_chart_inside'));
+
         var option = {
             color: ['rgba(86,80,144,1.0)','#ff5f74'],
     title : {
@@ -1497,7 +365,7 @@ if($("#scatter_chart_inside").length){
         formatter : function (params) {
             if (params.value.length > 1) {
                 return params.seriesName + '<br/>'
-                   + params.value[0] + ' : Social Media<br/>' 
+                   + params.value[0] + ' : Social Media<br/>'
                    + params.value[1] + ' : Advertisement';
             }
             else {
@@ -1505,7 +373,7 @@ if($("#scatter_chart_inside").length){
                    + params.name + ' : '
                    + params.value + 'Advertisement';
             }
-        },  
+        },
         axisPointer:{
             show: false,
             type : 'none',
@@ -1543,7 +411,7 @@ if($("#scatter_chart_inside").length){
                             shadowOffsetX: 3,
                             shadowOffsetY: 3,
                         },
-                    },                    
+                    },
                     axisTick: {
                         show: false,
                     },
@@ -1578,7 +446,7 @@ if($("#scatter_chart_inside").length){
                             shadowOffsetX: 3,
                             shadowOffsetY: 3,
                         },
-                    },                    
+                    },
                     axisTick: {
                         show: false,
                     },
@@ -1738,10 +606,10 @@ if($("#scatter_chart_inside").length){
         }
     ]
 };
-                    
 
-        // Load data into the ECharts instance 
-        myChart.setOption(option); 
+
+        // Load data into the ECharts instance
+        myChart.setOption(option);
 
 }
 
@@ -1749,7 +617,7 @@ if($("#scatter_chart_inside").length){
 
         /*--------------- Chart 3 -------------*/
 if($("#platform_type_dates_pie").length){
-var myChart = echarts.init(document.getElementById('platform_type_dates_pie')); 
+var myChart = echarts.init(document.getElementById('platform_type_dates_pie'));
 
 var idx = 1;
 var option_dt = {
@@ -1809,7 +677,7 @@ var option_dt = {
                     mark : {show: false},
                     dataView : {show: false, readOnly: true},
                     magicType : {
-                        show: true, 
+                        show: true,
                         type: ['pie', 'funnel'],
                         option: {
                             funnel: {
@@ -1844,7 +712,7 @@ var option_dt = {
                                     data:[{value: 35,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
                                 }
                             ]
-                    }, 
+                    },
                 {
                     series : [
                         {
@@ -1867,7 +735,7 @@ var option_dt = {
     ] // end options object
 };
 
-myChart.setOption(option_dt);        
+myChart.setOption(option_dt);
 
 
 }
@@ -1877,7 +745,7 @@ myChart.setOption(option_dt);
 
         /*--------------- Chart 3 -------------*/
 if($("#platform_type_dates_donut").length){
-var myChart = echarts.init(document.getElementById('platform_type_dates_donut')); 
+var myChart = echarts.init(document.getElementById('platform_type_dates_donut'));
 
 var idx = 1;
 var option_dt = {
@@ -1928,7 +796,7 @@ var option_dt = {
                 x: 'left',
                 orient:'vertical',
                 padding: 0,
-                data:['Apple','Windows','Linux','Android','Others']
+                data:['Apple','FOI','Linux','Android','Others']
             },
             toolbox: {
                 show : true,
@@ -1937,7 +805,7 @@ var option_dt = {
                     mark : {show: false},
                     dataView : {show: false, readOnly: true},
                     magicType : {
-                        show: true, 
+                        show: true,
                         type: ['pie', 'funnel'],
                         option: {
                             funnel: {
@@ -1969,16 +837,16 @@ var option_dt = {
                                         normal : { label : { show : true }, labelLine : { show : true } },
                                         emphasis : { label : { show : false }, labelLine : {show : false} }
                                     },
-                                    data:[{value: 35,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
+                                    data:[{value: 35,  name:'Apple'}, {value: 16,  name:'FOI'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
                                 }
                             ]
-                    }, 
+                    },
                 {
                     series : [
                         {
                             name:'05-16',
                             type:'pie',
-                            data:[{value: 42,  name:'Apple'}, {value: 51,  name:'Windows'}, {value: 39,  name:'Linux'}, {value: 25,  name:'Android'}, {value: 9,  name:'Others'}]
+                            data:[{value: 42,  name:'Apple'}, {value: 51,  name:'FOI'}, {value: 39,  name:'Linux'}, {value: 25,  name:'Android'}, {value: 9,  name:'Others'}]
                         }
                     ]
                 },
@@ -1987,7 +855,7 @@ var option_dt = {
                         {
                             name:'04-16',
                             type:'pie',
-                            data:[{value: 29,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 24,  name:'Linux'}, {value: 19,  name:'Android'}, {value: 5,  name:'Others'}]
+                            data:[{value: 29,  name:'Apple'}, {value: 16,  name:'FOI'}, {value: 24,  name:'Linux'}, {value: 19,  name:'Android'}, {value: 5,  name:'Others'}]
                         }
                     ]
                 },
@@ -1995,7 +863,7 @@ var option_dt = {
     ] // end options object
 };
 
-myChart.setOption(option_dt);        
+myChart.setOption(option_dt);
 
 
 }
@@ -2006,7 +874,7 @@ myChart.setOption(option_dt);
 
         /*--------------- Chart 3 -------------*/
 if($("#platform_type_dates_funnel").length){
-var myChart = echarts.init(document.getElementById('platform_type_dates_funnel')); 
+var myChart = echarts.init(document.getElementById('platform_type_dates_funnel'));
 
 var idx = 1;
 var option_dt = {
@@ -2057,7 +925,7 @@ var option_dt = {
                 x: 'left',
                 orient:'vertical',
                 padding: 0,
-                data:['Apple','Windows','Linux','Android','Others']
+                data:['Apple','FOI','Linux','Android','Others']
             },
             toolbox: {
                 show : true,
@@ -2066,7 +934,7 @@ var option_dt = {
                     mark : {show: false},
                     dataView : {show: false, readOnly: true},
                     magicType : {
-                        show: true, 
+                        show: true,
                         type: ['pie', 'funnel'],
                         option: {
                             funnel: {
@@ -2098,16 +966,16 @@ var option_dt = {
                                         normal : { label : { show : true }, labelLine : { show : true } },
                                         emphasis : { label : { show : false }, labelLine : {show : false} }
                                     },
-                                    data:[{value: 35,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
+                                    data:[{value: 35,  name:'Apple'}, {value: 16,  name:'FOI'}, {value: 27,  name:'Linux'}, {value: 29,  name:'Android'}, {value: 12,  name:'Others'}]
                                 }
                             ]
-                    }, 
+                    },
                 {
                     series : [
                         {
                             name:'05-16',
                             type:'funnel',
-                            data:[{value: 42,  name:'Apple'}, {value: 51,  name:'Windows'}, {value: 39,  name:'Linux'}, {value: 25,  name:'Android'}, {value: 9,  name:'Others'}]
+                            data:[{value: 42,  name:'Apple'}, {value: 51,  name:'FOI'}, {value: 39,  name:'Linux'}, {value: 25,  name:'Android'}, {value: 9,  name:'Others'}]
                         }
                     ]
                 },
@@ -2116,7 +984,7 @@ var option_dt = {
                         {
                             name:'04-16',
                             type:'funnel',
-                            data:[{value: 29,  name:'Apple'}, {value: 16,  name:'Windows'}, {value: 24,  name:'Linux'}, {value: 19,  name:'Android'}, {value: 5,  name:'Others'}]
+                            data:[{value: 29,  name:'Apple'}, {value: 16,  name:'FOI'}, {value: 24,  name:'Linux'}, {value: 19,  name:'Android'}, {value: 5,  name:'Others'}]
                         }
                     ]
                 },
@@ -2124,7 +992,7 @@ var option_dt = {
     ] // end options object
 };
 
-myChart.setOption(option_dt);        
+myChart.setOption(option_dt);
 
 
 }
@@ -2142,8 +1010,8 @@ myChart.setOption(option_dt);
 if($("#gauge_chart_filled").length){
 
 // Initialize after dom ready
-        var myChart = echarts.init(document.getElementById('gauge_chart_filled')); 
-        
+        var myChart = echarts.init(document.getElementById('gauge_chart_filled'));
+
 var option = {
     tooltip : {
         formatter: "{a} <br/>{b} : {c}%"
@@ -2162,10 +1030,10 @@ var option = {
             type:'gauge',
             startAngle: 180,
             endAngle: 0,
-            center : ['50%', '90%'], 
+            center : ['50%', '90%'],
             radius : 200,
-            /*axisLine: {     
-                lineStyle: {      
+            /*axisLine: {
+                lineStyle: {
                     width: 200
                 }
             },*/
@@ -2180,11 +1048,11 @@ var option = {
                                 width:150
                             }
                         }  ,
-            axisTick: {           
-                splitNumber: 10,   
-                length :12,       
+            axisTick: {
+                splitNumber: 10,
+                length :12,
             },
-            axisLabel: {           
+            axisLabel: {
                 formatter: function(v){
                     switch (v+''){
                         case '10': return 'Low';
@@ -2193,7 +1061,7 @@ var option = {
                         default: return '';
                     }
                 },
-                textStyle: {       
+                textStyle: {
                     color: '#fff',
                     fontSize: 15,
                     fontWeight: 'bolder'
@@ -2206,8 +1074,8 @@ var option = {
             },
             title : {
                 show : true,
-                offsetCenter: [0, '-60%'],      
-                textStyle: {      
+                offsetCenter: [0, '-60%'],
+                textStyle: {
                     color: '#fff',
                     fontSize: 30
                 }
@@ -2219,9 +1087,9 @@ var option = {
                 borderColor: '#ccc',
                 width: 100,
                 height: 40,
-                offsetCenter: [0, -40],       
+                offsetCenter: [0, -40],
                 formatter:'{value}%',
-                textStyle: {      
+                textStyle: {
                     fontSize : 30
                 }
             },
@@ -2231,7 +1099,7 @@ var option = {
 
 
         /*var option = {
-                        
+
                 tooltip : {
                     formatter: "{b} : {c}%"
                 },
@@ -2282,7 +1150,7 @@ var option = {
                                 fontSize : 20
                             }
                         },
-                       
+
                         data:[{value: 50, name: 'Server Load (MB)'}]
                     }
              ]*/
@@ -2313,7 +1181,7 @@ function gauge_load_chart_filled(option){
 
 
     /******************************
-     initialize respective scripts 
+     initialize respective scripts
      *****************************/
     $(document).ready(function() {
         CRESTADMIN_SETTINGS.dashboardEcharts();

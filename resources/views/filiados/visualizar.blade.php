@@ -12,7 +12,7 @@
             <h1 class="title">{{ isset($filiado->nome) ? $filiado->nome :'' }}</h1>
             <!-- BOTÕES INÍCIO -->
             <a href="/filiados/editar/{{$filiado->id}}" class="btn btn-primary" type="button"><i class="fa fa-pencil"></i><span> Editar </span></a>
-            <a href="/filiados/editar/{{$filiado->id}}" class="btn btn-primary" type="button"><i class="fa fa-plus"></i><span> Informar Pagamento </span></a>
+            <a href="#modalAddPagamento" data-toggle="modal" data-rota="{{ route('filiados.visualizar',$filiado->id)}}" class="btn btn-primary addPagamento"><i class="fa fa-plus"></i><span> Adicionar Pagamento </span></a>
             <button data-rota="/filiados/deletar/{{$filiado->id}}" class="btn btn-danger deletar" type="button"><i class="fa fa-minus"></i><span> Deletar </span></button>
             <!-- BOTÕES FIM -->
           </div>
@@ -70,6 +70,7 @@
     </section>
   </section>
   <!-- FIM DO CONTEÚDO -->
+  @include('pagamentos._modalAddPagamento')
 @endsection
 @push('styles')
   <link href="{{ asset('plugins/select2/select2.css') }}" rel="stylesheet">

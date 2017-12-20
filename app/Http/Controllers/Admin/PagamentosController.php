@@ -17,7 +17,9 @@ class PagamentosController extends Controller
   }
   public function porFiliado($filiado_id){
     $filiado = Filiado::find($filiado_id);
-    $pagamentos = Pagamento::where('filiado_id', $filiado_id)->get();
+    $pagamentos = Pagamento::where('filiado_id', $filiado_id)
+      ->orderBy('dt_pagamento','desc')
+      ->get();
     //dd($pagamentos);
   		return view('pagamentos.index',compact('pagamentos'))
   		->with(compact('filiado'));
@@ -39,7 +41,7 @@ class PagamentosController extends Controller
 				$pagamento->fill($dados);
 				$pagamento->save();
 				\Session::flash('alerta',['tipo'=>'success','titulo'=>'Sucesso.','msg'=>Mensagem::get(2)]);
-				return response()->json(['retorno'=>0,'redirect'=>route('pagamentos')]);
+				return response()->json(['retorno'=>0]);
 
 		}
 
