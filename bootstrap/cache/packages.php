@@ -61,6 +61,17 @@
       0 => 'Yajra\\DataTables\\ButtonsServiceProvider',
     ),
   ),
+  'jenssegers/date' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Jenssegers\\Date\\DateServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Date' => 'Jenssegers\\Date\\Date',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
@@ -77,17 +88,6 @@
     'providers' => 
     array (
       0 => 'ConsoleTVs\\Support\\SupportServiceProvider',
-    ),
-  ),
-  'jenssegers/date' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Jenssegers\\Date\\DateServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Date' => 'Jenssegers\\Date\\Date',
     ),
   ),
   'consoletvs/charts' => 

@@ -60,11 +60,11 @@ Route::group(['middleware'=>'auth'], function(){
 
 });
 // FIM MIDDLEWARE AUTH
-Route::get('/',['as'=>'login', function(){
+Route::get('/login',['as'=>'login', function(){
 	return view('login.index');
 }]);
 
 
 
-Route::post('/',['as'=>'login', 'uses'=>'Admin\UsuarioController@login']);
+Route::post('/login',['as'=>'login', 'uses'=>'Admin\UsuarioController@login']);
 Route::get('/LogAtividades',['as'=>'log_atividades', 'uses'=>'HomeController@LogAtividades']);
