@@ -145,7 +145,7 @@
        });
    })
 </script>
-  {!! $chart->script() !!}
+  
   @stack('scripts')
   @yield('scripts')
   @if(Session::has('alerta'))

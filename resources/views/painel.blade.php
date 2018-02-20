@@ -74,7 +74,7 @@
 @endpush
 
 @push('scripts')
-
+  {!! $chart->script() !!}
   <script src="{{ asset('plugins/echarts/echarts-all.js') }}" type="text/javascript"></script>
   <script src="{{ asset('js/chart-echarts.js') }}" type="text/javascript"></script>
 

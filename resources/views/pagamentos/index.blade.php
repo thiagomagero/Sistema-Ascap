@@ -9,7 +9,7 @@
         <div class="page-title">
           <!-- TÍTULO PRINCIPAL DA PÁGINA INÍCIO -->
           <div class="pull-left">
-            <h1 class="title">Pagamentos</h1>
+            <h1 class="title">Contribuições</h1>
             {{-- <a href="{{ route('filiados.adicionar') }}" class="btn btn-primary"><i class="fa fa-plus"></i><span> Cadastrar Novo</span></a> --}}
           </div>
           <!-- TÍTULO PRINCIPAL DA PÁGINA FIM -->
@@ -21,7 +21,7 @@
                 <a href="index-2.html"><i class="fa fa-home"></i>Painel</a>
               </li>
               <li class="active">
-                <strong>Pagamentos</strong>
+                <strong>Contribuições</strong>
               </li>
             </ol>
           </div>

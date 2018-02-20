@@ -59,7 +59,7 @@
             </a>
             <ul class="sub-menu" >
               <li>
-                <a class="@if(Route::current()->getName() == 'pagamentos') active @endif" href="{{ route('pagamentos') }}" >Informar Pagamento</a>
+                <a class="@if(Route::current()->getName() == 'pagamentos') active @endif" href="{{ route('pagamentos') }}" >Informar Contribuição</a>
                 </li>
                 <li>
                   <a class="" href="#" >Consultar</a>
@@ -67,6 +67,22 @@
 
               </ul>
             </li>
+            <li class="">
+              <a href="#">
+                <i class="fa fa-money"></i>
+                <span class="title">Financeiro</span>
+                <span class="arrow "></span>
+              </a>
+              <ul class="sub-menu" >
+                <li>
+                  <a class="@if(Route::current()->getName() == 'financeiro') active @endif" href="{{ route('financeiro') }}" >Informar Pagamento</a>
+                  </li>
+                  <li>
+                    <a class="" href="#" >Consultar</a>
+                  </li>
+
+                </ul>
+              </li>
             <li class="@if(Route::current()->getName() == 'usuarios') open @endif">
               <a href="#">
                 <i class="fa fa-group"></i>

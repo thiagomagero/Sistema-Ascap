@@ -58,6 +58,10 @@ Route::group(['middleware'=>'auth'], function(){
 
 	Route::post('/pagamento/salvar',['as'=>'pagamento.salvar', 'uses'=>'Admin\PagamentosController@salvar']);
 
+	//FINANCEIRO
+	Route::get('/financeiro',['as'=>'financeiro', 'uses'=>'Admin\FinanceiroController@index']);
+	Route::post('/financeiro/salvar',['as'=>'financeiro.salvar', 'uses'=>'Admin\FinanceiroController@salvar']);
+
 });
 // FIM MIDDLEWARE AUTH
 Route::get('/login',['as'=>'login', function(){

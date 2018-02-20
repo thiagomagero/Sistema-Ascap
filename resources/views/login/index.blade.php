@@ -57,7 +57,7 @@
             <div class="form-box">
               <div class="form-top">
                 <div class="form-top-left">
-                  <h3>Login para acessar teste:</h3>
+                  <h3>Login para acessar:</h3>
                   <p>Informe seu usuário e sua senha:</p>
                 </div>
               </div>
@@ -88,11 +88,11 @@
             <div class="form-box">
               <div class="form-top">
                 <div class="form-top-left">
-                  <h4>Sistema de Contingenciamento de Emendas Parlamentares</h4>
+                  <h4>Intranet ASCAP - Políticas Públicas e Gestão Governamental</h4>
                 </div>
               </div>
               <div class="form-bottom">
-                Descrição do sistema
+                Sistema de Gerenciamento Administrativo
               </div>
             </div>
 
@@ -111,7 +111,7 @@
 
         <div class="col-sm-8 col-sm-offset-2">
           <div class="footer-border"></div>
-          <p>Informações para contato</p>
+          <p>Desenvolvido por Thiago Mágero</p>
           </div>
 
         </div>
