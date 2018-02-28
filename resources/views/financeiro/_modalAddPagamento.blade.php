@@ -42,7 +42,7 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label for="field-5" class="control-label">Descrição do Pagamento</label>
-                <textarea class="form-control" required></textarea>
+                <textarea class="form-control" required id="descricao" name="descricao"></textarea>
               </div>
             </div>
           </div>
@@ -59,14 +59,7 @@
 @push('scripts')
   <script type="text/javascript">
   var regras = {
-    cpf: {
-      required: true,
-      cpf: true
-    },
-    email: {
-      required: true,
-      email: true
-    }
+    
   };
 
   ajaxFire("formAddPagamento",regras);

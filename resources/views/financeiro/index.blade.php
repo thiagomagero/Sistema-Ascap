@@ -51,7 +51,7 @@
 
               </div>
 
-              @if (isset($financeiro))
+              @if (isset($financas))
                 <div class="row">
 
                   <div class="col-md-12">
@@ -63,17 +63,23 @@
                           <th>Valor do Pagamento</th>
                           <th>Data do Pagamento</th>
                           <th>Mês/Ano Referência</th>
-                          <th>Ação</th>
+                          <th>Descrição</th>
+                          {{-- <th>Ação</th> --}}
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($financeiro as $financeiro)
+                        @foreach ($financas as $financa)
                           <tr>
-                            <th scope="row">{{$financeiro->id}}</th>
-                            <td>{{$financeiro->valor}}</td>
-                            <td>{{$financeiro->dt_pagamento}}</td>
-                            <td>{{$financeiro->ref_mes}}/{{$financeiro->ano_ref}}</td>
-                            <td></td>
+                            <th scope="row">{{$financa->id}}</th>
+                            <td>{{$financa->valor}}</td>
+                            <td>{{$financa->dt_pagamento}}</td>
+                            <td>{{$financa->ref_mes}}/{{$financa->ano_ref}}</td>
+                            <td>{{$financa->descricao}}</td>
+                            {{-- <td>
+                          <a href="http://localhost:8000/usuarios/editar/1" class="btn btn-primary btn-sm"><i class="Small material-icons">Editar</i></a>
+                          <a href="javascript: deletarUsuario(1)" class="btn btn-danger btn-sm"><i class="Small material-icons">Deletar</i></a>
+
+                        </td> --}}
                           </tr>
                         @endforeach
                       </tbody>
