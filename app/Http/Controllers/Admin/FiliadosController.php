@@ -29,9 +29,9 @@ class FiliadosController extends Controller
 		return Datatables::of($filiado)
 		->addColumn('action', function($filiado){
 			return '<div class="btn-group">
-			<a href="/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
-			<a href="/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-responsive"><i class="glyphicon glyphicon-edit"></i></a>
-			<button  data-rota="/filiados/deletar/'.$filiado->id.'" class="btn btn-danger btn-responsive deletar"><i class="glyphicon glyphicon-trash"></i></button>
+			<a href="/intranet/filiados/visualizar/'.$filiado->id.'" class="btn btn-info btn-responsive"><i class="glyphicon glyphicon-eye-open"></i></button>
+			<a href="/intranet/filiados/editar/'.$filiado->id.'" class="btn btn-primary btn-responsive"><i class="glyphicon glyphicon-edit"></i></a>
+			<button  data-rota="/intranet/filiados/deletar/'.$filiado->id.'" class="btn btn-danger btn-responsive deletar"><i class="glyphicon glyphicon-trash"></i></button>
 			</div>';
 		})
 		->make(true);

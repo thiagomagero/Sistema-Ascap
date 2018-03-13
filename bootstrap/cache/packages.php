@@ -1,4 +1,22 @@
 <?php return array (
+  'consoletvs/charts' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ConsoleTVs\\Charts\\ChartsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Charts' => 'ConsoleTVs\\Charts\\Facades\\Charts',
+    ),
+  ),
+  'consoletvs/support' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'ConsoleTVs\\Support\\SupportServiceProvider',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
@@ -6,22 +24,33 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'intervention/image' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Intervention\\Image\\ImageServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Image' => 'Intervention\\Image\\Facades\\Image',
+    ),
+  ),
+  'jenssegers/date' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Jenssegers\\Date\\DateServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Date' => 'Jenssegers\\Date\\Date',
+    ),
+  ),
   'laravel/tinker' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    ),
-  ),
-  'yajra/laravel-datatables-oracle' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Yajra\\DataTables\\DataTablesServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
     ),
   ),
   'laravelcollective/html' => 
@@ -34,13 +63,6 @@
     array (
       'Form' => 'Collective\\Html\\FormFacade',
       'Html' => 'Collective\\Html\\HtmlFacade',
-    ),
-  ),
-  'yajra/laravel-datatables-html' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Yajra\\DataTables\\HtmlServiceProvider',
     ),
   ),
   'maatwebsite/excel' => 
@@ -61,44 +83,22 @@
       0 => 'Yajra\\DataTables\\ButtonsServiceProvider',
     ),
   ),
-  'jenssegers/date' => 
+  'yajra/laravel-datatables-html' => 
   array (
     'providers' => 
     array (
-      0 => 'Jenssegers\\Date\\DateServiceProvider',
+      0 => 'Yajra\\DataTables\\HtmlServiceProvider',
+    ),
+  ),
+  'yajra/laravel-datatables-oracle' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     ),
     'aliases' => 
     array (
-      'Date' => 'Jenssegers\\Date\\Date',
-    ),
-  ),
-  'intervention/image' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Intervention\\Image\\ImageServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Image' => 'Intervention\\Image\\Facades\\Image',
-    ),
-  ),
-  'consoletvs/support' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'ConsoleTVs\\Support\\SupportServiceProvider',
-    ),
-  ),
-  'consoletvs/charts' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'ConsoleTVs\\Charts\\ChartsServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Charts' => 'ConsoleTVs\\Charts\\Facades\\Charts',
+      'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
     ),
   ),
 );
