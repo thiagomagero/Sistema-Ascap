@@ -109,7 +109,7 @@
     <script src="{{ asset('plugins/typeahead/handlebars.min.js') }}" type="text/javascript"></script>
 
     <script type="text/javascript">
-    var rota = "/pagamentos/listaFiliados/";
+    var rota = "/intranet/pagamentos/listaFiliados/";
     var buscar_autocomplete = new Bloodhound({
       datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
       queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -133,7 +133,7 @@
       }
     }).on('typeahead:selected', function(event, selection) {
 
-      window.location = "/pagamentos/"+selection.id+"/"+selection.slug_nome;
+      window.location = "/intranet/pagamentos/"+selection.id+"/"+selection.slug_nome;
       // the second argument has the info you want
       // var rota = "/pagamentos/"+selection.id;
       // ajaxFireDados(rota, function(data){

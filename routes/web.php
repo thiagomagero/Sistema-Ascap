@@ -64,7 +64,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 });
 // FIM MIDDLEWARE AUTH
-Route::get('/login',['as'=>'login', function(){
+Route::get('/',['as'=>'loginIndex', function(){
 	return view('login.index');
 }]);
 

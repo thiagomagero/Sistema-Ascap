@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     public function sair()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('loginIndex');
     }
     public function index(){
         $usuarios = User::all();

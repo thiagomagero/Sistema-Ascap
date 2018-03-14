@@ -45,8 +45,7 @@
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text">
             <h1 style="color:#ccc">
-              {{-- <img src="{{ asset('vendor/view_login/assets/img/logo.png') }}"/> --}}
-              Logo
+              <img src="{{ asset('images/logo_login.png') }}"/>
             </h1>
           </div>
         </div>
