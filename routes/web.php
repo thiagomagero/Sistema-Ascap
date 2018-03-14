@@ -61,7 +61,7 @@ Route::group(['middleware'=>'auth'], function(){
 	//FINANCEIRO
 	Route::get('/financeiro',['as'=>'financeiro', 'uses'=>'Admin\FinanceiroController@index']);
 	Route::post('/financeiro/salvar',['as'=>'financeiro.salvar', 'uses'=>'Admin\FinanceiroController@salvar']);
-
+Route::get('/LogAtividades',['as'=>'log_atividades', 'uses'=>'HomeController@LogAtividades']);
 });
 // FIM MIDDLEWARE AUTH
 Route::get('/',['as'=>'loginIndex', function(){
@@ -71,4 +71,3 @@ Route::get('/',['as'=>'loginIndex', function(){
 
 
 Route::post('/login',['as'=>'login', 'uses'=>'Admin\UsuarioController@login']);
-Route::get('/LogAtividades',['as'=>'log_atividades', 'uses'=>'HomeController@LogAtividades']);
