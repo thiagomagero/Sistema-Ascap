@@ -59,9 +59,10 @@
                         <td>{{$usuario->name}}</td>
                         <td>{{$usuario->email}}</td>
                         <td>
+                          @if ($usuario->id != 1)
                           <a href="{{ route('usuarios.editar',$usuario->id) }}" class="btn btn-primary btn-sm"><i class="Small material-icons">Editar</i></a>
                           <a href="javascript: deletarUsuario({{ $usuario->id }})" class="btn btn-danger btn-sm"><i class="Small material-icons">Deletar</i></a>
-
+                          @endif
                         </td>
                       </tr>
                       @endforeach

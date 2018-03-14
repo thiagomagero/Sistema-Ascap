@@ -61,9 +61,6 @@
               <li>
                 <a class="@if(Route::current()->getName() == 'pagamentos') active @endif" href="{{ route('pagamentos') }}" >Informar Contribuição</a>
                 </li>
-                <li>
-                  <a class="" href="#" >Consultar</a>
-                </li>
 
               </ul>
             </li>
@@ -77,10 +74,6 @@
                 <li>
                   <a class="@if(Route::current()->getName() == 'financeiro') active @endif" href="{{ route('financeiro') }}" >Informar Pagamento</a>
                   </li>
-                  <li>
-                    <a class="" href="#" >Consultar</a>
-                  </li>
-
                 </ul>
               </li>
             <li class="@if(Route::current()->getName() == 'usuarios') open @endif">

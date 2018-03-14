@@ -93,9 +93,12 @@ $( ".btnSalvaUsuario" ).on( "click", function() {
   var email = $("#email").val();
   var password = $("#password").val();
   $.ajax({
-    url: "usuarios/salvar",
+    url: "/intranet/usuarios/salvar",
     type: "POST",
     data: {name:name,email:email,password:password},
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
     beforeSend: function() {
       $('.loading').show();
     },
@@ -120,5 +123,5 @@ $( ".btnSalvaUsuario" ).on( "click", function() {
 
 
 function deletarUsuario(id){
-  window.location.href = "/usuarios/deletar/"+id;
+  window.location.href = "/intranet/usuarios/deletar/"+id;
 }

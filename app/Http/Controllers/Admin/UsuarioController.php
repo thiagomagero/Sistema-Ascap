@@ -51,6 +51,7 @@ class UsuarioController extends Controller
     // }
 
     public function salvar(Request $request){
+
         $dados = $request->all();
 
         $usuario = new User();
