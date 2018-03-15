@@ -5,18 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Charts;
+use App\Financeiro as Financeiro;
+use Carbon\Carbon; Carbon::setLocale('pt_BR');;
 class indexPainel extends Controller
 {
   public function index()
     {
-        $chart = Charts::create('area', 'highcharts')
-    ->title('Relatorio de pagamentos')
-    ->elementLabel('Grafico anual')
-    ->labels(['Janeiro', 'Fevereiro', 'Marco','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'])
-    ->values([5,8,10,20,30,40,50,60,70,80,90,100])
-    ->dimensions(700,500)
-    ->responsive(true);
-
-        return view('painel', ['chart' => $chart]);
-    }
+        $chart = Charts::database(Financeiro::all(),'pie', 'google')
+        ->title("Contribuiçoes")
+        ->elementLabel("Valor")
+        ->groupBy('valor');
+            return view('painel',compact('chart'));
+        }
 }
